@@ -1,3 +1,4 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
 const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,11 +7,14 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['Inter', ...defaultTheme.fontFamily.sans],
+    },
     colors:{
       'black':'#333333',
       'main':'#4F4F4F',
-      'gray-82':'#828282',
-      'gray-BD':'#BDBDBD',
+      'gray':'#828282',
+      'gray-2':'#BDBDBD',
       'gray-light':'#E0E0E0',
       'gray-pale':'#F2F2F2',
       'white':'#FFFFFF',
@@ -35,8 +39,15 @@ export default {
       'orange-pressed':'#FF942B',
       'red-pressed':'#E44C4C',
       'green-pressed':'#55CC86',
-    }
+    },
+    fontSize:{
+      'caption':'14px',
+      'regular':'16px',
+      'small':'12px',
+      'very-small':'10px'
+    },
   },
+  
   plugins: [
     plugin(({addComponents})=>{
       addComponents({
