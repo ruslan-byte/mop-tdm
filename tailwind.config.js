@@ -10,6 +10,14 @@ export default {
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
+    extend: {
+      letterSpacing: {
+        '0.2':'0.0125rem'
+      },
+      strokeWidth: {
+        '0.5':'0.125rem'
+      }
+    },
     colors:{
       'black':'#333333',
       'main':'#4F4F4F',
@@ -46,10 +54,20 @@ export default {
       'small':'12px',
       'very-small':'10px'
     },
+    
   },
   
   plugins: [
-    plugin(({addComponents})=>{
+    plugin(({addComponents,addBase,theme})=>{
+      addBase({
+        'h1': {
+          fontSize: '2.25rem',
+          fontWeight: '700',
+          lineHeight: '2.723125rem',
+          textAlign: 'left',
+          color: theme('colors.main')
+        }
+      })
       addComponents({
         '.g-container': {
           marginLeft: 'auto',
