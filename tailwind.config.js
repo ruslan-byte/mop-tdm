@@ -16,6 +16,9 @@ export default {
       },
       strokeWidth: {
         '0.5':'0.125rem'
+      },
+      borderRadius:{
+        DEFAULT:'0.3125rem'
       }
     },
     colors:{
@@ -44,7 +47,7 @@ export default {
       'orange-hover':'#FF942B',
       'red-hover':'#FA6E6E',
       'blue-pressed':'#4A58EF',
-      'orange-pressed':'#FF942B',
+      'orange-pressed':'#EC7908',
       'red-pressed':'#E44C4C',
       'green-pressed':'#55CC86',
     },
@@ -65,7 +68,6 @@ export default {
           fontWeight: '700',
           lineHeight: '2.723125rem',
           textAlign: 'left',
-          color: theme('colors.main')
         }
       })
       addComponents({
