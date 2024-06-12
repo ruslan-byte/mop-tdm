@@ -18,7 +18,8 @@ export default {
         '0.5':'0.125rem'
       },
       borderRadius:{
-        DEFAULT:'0.3125rem'
+        DEFAULT:'0.3125rem',
+        '10':'0.625rem'
       }
     },
     colors:{
@@ -35,7 +36,7 @@ export default {
       'blue':'#5C6AFF',
       'blue-dark':'#1F255A',
       'blue-pale':'#F2F4FF',
-      'blue-pale-2':'#E9ECFF',
+      'blue-light':'#E9ECFF',
       'green-21':'#21B5C2',
       'green':'#5BCD8A',
       'red':'#EB5757',
@@ -50,6 +51,7 @@ export default {
       'orange-pressed':'#EC7908',
       'red-pressed':'#E44C4C',
       'green-pressed':'#55CC86',
+      'transparent':'rgba(0,0,0,0)'
     },
     fontSize:{
       'caption':'14px',
@@ -68,6 +70,15 @@ export default {
           fontWeight: '700',
           lineHeight: '2.723125rem',
           textAlign: 'left',
+        },
+        'h3': {
+          fontSize: '1.25rem',
+          fontWeight: '600',
+          lineHeight: '1.625rem'
+        },
+        'h4': {
+          fontSize: '1.25rem',
+          lineHeight: '1.5125rem',
         }
       })
       addComponents({
@@ -78,6 +89,13 @@ export default {
           maxWidth: '1240px',
           paddingLeft: '2rem',
           paddingRight: '2rem'
+        },
+        '.g-white-block': {
+          padding:'1.5rem 2rem',
+          background:'white',
+          borderRadius: theme('borderRadius.10'),
+          boxShadow: '4px 4px 20px 0px #E6E8EE'
+
         }
       })
 
