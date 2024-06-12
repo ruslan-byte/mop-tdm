@@ -13,6 +13,7 @@ import Tabs from "@/components/Tabs.vue";
 import type { ITab } from "@/components/Tabs.vue";
 import PlanSection from "./partial/PlanSection.vue";
 import { ref } from "vue";
+
 const BreadCrumbsLinks: IBreadCrumbLink[] = [
   {
     id: "",

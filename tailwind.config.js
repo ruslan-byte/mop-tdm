@@ -95,7 +95,43 @@ export default {
           background:'white',
           borderRadius: theme('borderRadius.10'),
           boxShadow: '4px 4px 20px 0px #E6E8EE'
-
+        },
+        '.g-button': {
+          paddingTop: '0.375rem',
+          paddingBottom: '0.375rem',
+          paddingLeft: '3.1875rem',
+          paddingRight: '3.1875rem',
+          lineHeight: '1.125rem',
+          backgroundColor: theme('colors.orange'),
+          color:theme('colors.white'),
+          borderRadius:theme('borderRadius.DEFAULT'),
+          fontSize:theme('fontSize.small'),
+          '&:hover': {
+            backgroundColor: theme('colors.orange-hover')
+          },
+          '&:active': {
+            backgroundColor: theme('colors.orange-pressed')
+          },
+          '&:disabled': {
+            backgroundColor: theme('colors.gray-light')
+          },
+        },
+        '.g-button-reset': {
+          color:theme('colors.gray'),
+          fontSize: theme('fontSize.caption'),
+          stroke: theme('colors.gray'),
+          '&:hover': {
+            color: theme('colors.main'),
+            stroke: theme('colors.main')
+          },
+          '&:active': {
+            color: theme('colors.black'),
+            stroke: theme('colors.black')
+          },
+          '&:disabled': {
+            color: theme('colors.gray-light'),
+            stroke: theme('colors.gray-light')
+          },
         }
       })
 
