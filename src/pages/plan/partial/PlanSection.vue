@@ -23,6 +23,7 @@
         </span>
       </button>
     </div>
+
     <div class="flex items-center gap-6 pb-4 border-b border-gray-pale mb-4">
       <p class="text-main">
         План:
@@ -57,6 +58,19 @@
         <h3 class="text-blue">+4 670 878.00 ₽</h3>
       </div>
     </div>
+    <div class="flex justify-between items-center">
+      <p class="leading-6 h-6">
+        Детализация динамики прироста плана по партнерам
+      </p>
+      <div class="flex items-center gap-4">
+        <p class="text-caption leading-5">Показывать сначала партнеров</p>
+        <Select
+          v-model="activeOption"
+          class="min-w-[18rem]"
+          :options="selectOptions"
+        ></Select>
+      </div>
+    </div>
   </section>
 </template>
 <script setup lang="ts">
@@ -69,6 +83,8 @@ import PieDiagramBlock from "./PieDiagramBlock.vue";
 import type { IPlanChartItem } from "./PieDiagramBlock.vue";
 import SmallDatePicker from "@/components/DatePickers/SmallDatePicker.vue";
 import moment from "moment";
+import Select from "@/components/Dropdowns/Select.vue";
+import type { IOption } from "@/components/Dropdowns/Select.vue";
 const fromDate = ref<Date>();
 const activeTab = ref("all");
 const tabs: ITab[] = [
@@ -156,6 +172,17 @@ const chartData: IPlanChartItem[] = [
     partnerName: "ИП Чекрыгина О. А.",
     factPercent: 7,
     factSum: 3826961.46,
+  },
+];
+const activeOption = ref("plan");
+const selectOptions: IOption[] = [
+  {
+    label: "С большим % от вашего плана",
+    value: "plan",
+  },
+  {
+    label: "С большей суммой отгрузок",
+    value: "shipment",
   },
 ];
 </script>

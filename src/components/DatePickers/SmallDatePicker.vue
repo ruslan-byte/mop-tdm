@@ -71,22 +71,31 @@
         <p class="text-small font-semibold mb-2">Показывать за период</p>
         <div class="mb-8">
           <button
-            class="py-1.5 px-2 text-small text-blue bg-blue-light rounded mb-2"
-            :class="{ 'bg-blue text-white': activeButton == 'prevWeek' }"
+            class="py-1.5 px-2 text-small rounded mb-2"
+            :class="{
+              'bg-blue text-white': activeButton == 'prevWeek',
+              'text-blue bg-blue-light': activeButton != 'prevWeek',
+            }"
             @click="activeButton = 'prevWeek'"
           >
             За прошлую неделю
           </button>
           <button
-            class="py-1.5 px-2 text-small text-blue bg-blue-light rounded mb-2"
-            :class="{ 'bg-blue text-white': activeButton == 'week' }"
+            class="py-1.5 px-2 text-small rounded mb-2"
+            :class="{
+              'bg-blue text-white': activeButton == 'week',
+              'text-blue bg-blue-light': activeButton != 'week',
+            }"
             @click="activeButton = 'week'"
           >
             За неделю
           </button>
           <button
-            class="py-1.5 px-2 text-small text-blue bg-blue-light rounded"
-            :class="{ 'bg-blue text-white': activeButton == 'startThisWeek' }"
+            class="py-1.5 px-2 text-small rounded"
+            :class="{
+              'bg-blue text-white': activeButton == 'startThisWeek',
+              'text-blue bg-blue-light': activeButton != 'startThisWeek',
+            }"
             @click="activeButton = 'startThisWeek'"
           >
             С начала текущей недели

@@ -20,6 +20,9 @@ export default {
       borderRadius:{
         DEFAULT:'0.3125rem',
         '10':'0.625rem'
+      },
+      boxShadow: {
+        'DEFAULT':'4px 4px 20px 0px #E6E8EE'
       }
     },
     colors:{
@@ -94,7 +97,7 @@ export default {
           padding:'1.5rem 2rem',
           background:'white',
           borderRadius: theme('borderRadius.10'),
-          boxShadow: '4px 4px 20px 0px #E6E8EE'
+          boxShadow: theme('boxShadow.DEFAULT')
         },
         '.g-button': {
           paddingTop: '0.375rem',
