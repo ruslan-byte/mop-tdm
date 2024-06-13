@@ -70,14 +70,28 @@
       class="text-main text-small flex gap-1 items-center pb-4 mb-4 border-b border-gray-pale"
     >
       <b class="font-semibold inline-block leading-4.5 mr-1">Показаны:</b>
+      <strong class="text-green-21 leading-4 font-normal"
+        >% выполнения плана партнера</strong
+      >
+      /
       <span class="text-gray leading-4">% от вашего плана </span> /
-      <strong class="text-green-21 leading-4">Сумма отгрузок за период</strong>
+      <strong class="text-green-21 leading-4 font-normal"
+        >Сумма отгрузок за период</strong
+      >
     </div>
     <div class="columns-3">
       <div class="flex text-small mb-2 w-87.5" v-for="partner of partnersList">
         <div class="w-37.5 text-main">{{ partner.name }}</div>
         <div class="text-main">
-          <span class="text-gray">{{ partner.percent }}</span> /
+          <strong
+            class="font-normal"
+            :class="{
+              'text-green-21': partner.personalPercent != '0%',
+              'text-gray': partner.personalPercent == '0%',
+            }"
+            >{{ partner.personalPercent }}</strong
+          >
+          / <span class="text-gray">{{ partner.percent }}</span> /
           <strong
             class="font-normal"
             :class="{
@@ -196,83 +210,116 @@ const chartData: IPlanChartItem[] = [
   },
 ];
 
-const activeOption = ref("plan");
-const selectOptions: IOption[] = [
-  {
-    label: "С большим % от вашего плана",
-    value: "plan",
-  },
-  {
-    label: "С большей суммой отгрузок",
-    value: "shipment",
-  },
-];
+const activeOption = ref("shipment");
+const selectOptions = computed((): IOption[] => {
+  if (props.type == "month")
+    return [
+      {
+        label: "С большей суммой отгрузок",
+        value: "shipment",
+      },
+    ];
+  else
+    return [
+      {
+        label: "С большим % от вашего плана",
+        value: "plan",
+      },
+      {
+        label: "С большей суммой отгрузок",
+        value: "shipment",
+      },
+    ];
+});
 
 const partnersList = [
   {
     name: "ИП Чекрыгина О. А.",
+    personalPercent: "+10%",
     percent: "+10%",
     sum: "+5 467 087,80",
   },
   {
     name: "ЛЕДБРОКЕР",
+    personalPercent: "+17%",
     percent: "+8,1%",
     sum: "+4 428 341,12",
   },
   {
     name: "ЭЛЕКТРОСВЕТ Орел",
+    personalPercent: "+8%",
     percent: "+7%",
     sum: "+3 826 961,46",
   },
   {
     name: "Лайт",
+    personalPercent: "+10%",
     percent: "+6%",
     sum: "+3 280 252,68",
   },
   {
     name: "Партия Света",
+    personalPercent: "+17%",
     percent: "+5%",
     sum: "+2 733 543,90",
   },
   {
     name: "Дельта-плюс",
+    personalPercent: "+17%",
     percent: "+3,2%",
     sum: "+1 749 468,10",
   },
   {
     name: "ИП Вербовский Иван Борисович",
+    personalPercent: "+10%",
     percent: "+3%",
     sum: "+1 640 126,34",
   },
-  { name: "ЭлектроСтрой", percent: "+3%", sum: "+1 640 126,34" },
+  {
+    name: "ЭлектроСтрой",
+    personalPercent: "+17%",
+    percent: "+3%",
+    sum: "+1 640 126,34",
+  },
   {
     name: "Энергосберегающие технологии",
+    personalPercent: "+8%",
     percent: "+2,4%",
     sum: "+1 312 101,07",
   },
-  { name: "МАКСЭЛЕКТРО", percent: "+1,8%", sum: "+984 075,80" },
+  {
+    name: "МАКСЭЛЕКТРО",
+    personalPercent: "+10%",
+    percent: "+1,8%",
+    sum: "+984 075,80",
+  },
   {
     name: "Интердекор (г.Тула)",
+    personalPercent: "+17%",
     percent: "+1,5%",
     sum: "+820 063,17",
   },
   {
     name: "АВЕНТА",
+    personalPercent: "+10%",
     percent: "+1%",
     sum: "+546 708,78",
   },
   {
     name: "ЭНЕРГОСИТИ г. Орел",
+    personalPercent: "+17%",
     percent: "+0,6%",
     sum: "+328 025,27",
   },
   {
     name: "ИП Кондратьев А. С.",
+    personalPercent: "0%",
     percent: "0%",
     sum: "0",
   },
   {
     name: "КЕНАЗ ООО",
+    personalPercent: "0%",
     percent: "0%",
     sum: "0",
   },
