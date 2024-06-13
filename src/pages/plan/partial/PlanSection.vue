@@ -2,19 +2,27 @@
   <section class="g-white-block">
     <div class="flex gap-2 mb-4">
       <h3 class="text-blue-dark">Выполнение плана продаж</h3>
-      <h4 class="text-blue">(месяц)</h4>
+      <h4 class="text-blue">({{ planSectionTabLabel }})</h4>
     </div>
     <div
       class="flex justify-between items-center pb-4 mb-4 border-b border-gray-pale"
     >
       <Tabs :tabs="tabs" v-model="activeTab" type="blue-light"></Tabs>
-      <button class="h-5 leading-5 flex items-center" v-if="true">
+      <button
+        class="h-5 leading-5 flex items-center"
+        v-if="isShowPieDiagram"
+        @click="isShowPieDiagram = false"
+      >
         <BarDiagramIcon class="stroke-gray inline-block mr-2"></BarDiagramIcon>
         <span class="leading-5 text-caption text-gray"
           >Отображать столбцами
         </span>
       </button>
-      <button class="h-5 leading-5 flex items-center" v-else>
+      <button
+        class="h-5 leading-5 flex items-center"
+        v-else
+        @click="isShowPieDiagram = true"
+      >
         <PieDiagramIcon
           class="stroke-gray fill-gray stroke-[0.4px] inline-block mr-2 leading-5"
         ></PieDiagramIcon>
@@ -24,29 +32,16 @@
       </button>
     </div>
 
-    <div class="flex items-center gap-6 pb-4 border-b border-gray-pale mb-4">
-      <p class="text-main">
-        План:
-        <span class="font-semibold leading-6 text-blue-dark">
-          60 000 000,00 ₽
-        </span>
-      </p>
-      <p class="text-main">
-        Факт:
-        <router-link
-          class="mr-2 leading-6 text-blue border-b border-blue hover:text-blue-hover hover:border-blue-hover active:text-blue-pressed active:border-blue-pressed"
-          to="order-shipments"
-        >
-          54 670 878,00 ₽
-        </router-link>
-        (Электротехника - 60 000 000,00 ₽, КПП - 24 670 878, 00 ₽)
-      </p>
-    </div>
     <PieDiagramBlock
+      v-if="isShowPieDiagram"
       :data="chartData"
       :plan-sum="60000000"
       class="mb-6"
     ></PieDiagramBlock>
+
+    <BarDiagramBlock v-else :data="chartData" :plan-sum="60000000" class="mb-6">
+    </BarDiagramBlock>
+
     <div class="bg-background rounded-10 p-6 mb-6">
       <p class="text-blue-dark mb-4">
         Динамика прироста плана за период с:
@@ -58,7 +53,7 @@
         <h3 class="text-blue">+4 670 878.00 ₽</h3>
       </div>
     </div>
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center mb-2">
       <p class="leading-6 h-6">
         Детализация динамики прироста плана по партнерам
       </p>
@@ -71,12 +66,35 @@
         ></Select>
       </div>
     </div>
+    <div
+      class="text-main text-small flex gap-1 items-center pb-4 mb-4 border-b border-gray-pale"
+    >
+      <b class="font-semibold inline-block leading-4.5 mr-1">Показаны:</b>
+      <span class="text-gray leading-4">% от вашего плана </span> /
+      <strong class="text-green-21 leading-4">Сумма отгрузок за период</strong>
+    </div>
+    <div class="columns-3">
+      <div class="flex text-small mb-2 w-87.5" v-for="partner of partnersList">
+        <div class="w-37.5 text-main">{{ partner.name }}</div>
+        <div class="text-main">
+          <span class="text-gray">{{ partner.percent }}</span> /
+          <strong
+            class="font-normal"
+            :class="{
+              'text-green-21': partner.sum != '0',
+              'text-gray': partner.sum == '0',
+            }"
+            >{{ partner.sum }} ₽</strong
+          >
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 <script setup lang="ts">
 import Tabs from "@/components/Tabs.vue";
 import type { ITab } from "@/components/Tabs.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import BarDiagramIcon from "@/assets/icons/BarDiagram.svg";
 import PieDiagramIcon from "@/assets/icons/PieDiagram.svg";
 import PieDiagramBlock from "./PieDiagramBlock.vue";
@@ -85,6 +103,9 @@ import SmallDatePicker from "@/components/DatePickers/SmallDatePicker.vue";
 import moment from "moment";
 import Select from "@/components/Dropdowns/Select.vue";
 import type { IOption } from "@/components/Dropdowns/Select.vue";
+import BarDiagramBlock from "./BarDiagramBlock.vue";
+export type TPlanSection = "month" | "quartal" | "year";
+const props = defineProps<{ type: TPlanSection }>();
 const fromDate = ref<Date>();
 const activeTab = ref("all");
 const tabs: ITab[] = [
@@ -174,6 +195,7 @@ const chartData: IPlanChartItem[] = [
     factSum: 3826961.46,
   },
 ];
+
 const activeOption = ref("plan");
 const selectOptions: IOption[] = [
   {
@@ -185,5 +207,84 @@ const selectOptions: IOption[] = [
     value: "shipment",
   },
 ];
+
+const partnersList = [
+  {
+    name: "ИП Чекрыгина О. А.",
+    percent: "+10%",
+    sum: "+5 467 087,80",
+  },
+  {
+    name: "ЛЕДБРОКЕР",
+    percent: "+8,1%",
+    sum: "+4 428 341,12",
+  },
+  {
+    name: "ЭЛЕКТРОСВЕТ Орел",
+    percent: "+7%",
+    sum: "+3 826 961,46",
+  },
+  {
+    name: "Лайт",
+    percent: "+6%",
+    sum: "+3 280 252,68",
+  },
+  {
+    name: "Партия Света",
+    percent: "+5%",
+    sum: "+2 733 543,90",
+  },
+  {
+    name: "Дельта-плюс",
+    percent: "+3,2%",
+    sum: "+1 749 468,10",
+  },
+  {
+    name: "ИП Вербовский Иван Борисович",
+    percent: "+3%",
+    sum: "+1 640 126,34",
+  },
+  { name: "ЭлектроСтрой", percent: "+3%", sum: "+1 640 126,34" },
+  {
+    name: "Энергосберегающие технологии",
+    percent: "+2,4%",
+    sum: "+1 312 101,07",
+  },
+  { name: "МАКСЭЛЕКТРО", percent: "+1,8%", sum: "+984 075,80" },
+  {
+    name: "Интердекор (г.Тула)",
+    percent: "+1,5%",
+    sum: "+820 063,17",
+  },
+  {
+    name: "АВЕНТА",
+    percent: "+1%",
+    sum: "+546 708,78",
+  },
+  {
+    name: "ЭНЕРГОСИТИ г. Орел",
+    percent: "+0,6%",
+    sum: "+328 025,27",
+  },
+  {
+    name: "ИП Кондратьев А. С.",
+    percent: "0%",
+    sum: "0",
+  },
+  {
+    name: "КЕНАЗ ООО",
+    percent: "0%",
+    sum: "0",
+  },
+];
+const planSectionTabLabel = computed((): string => {
+  const labels = {
+    month: "месяц",
+    quartal: "квартал",
+    year: "год",
+  };
+  return labels[props.type];
+});
+const isShowPieDiagram = ref(false);
 </script>
 <style lang="scss"></style>

@@ -12,7 +12,8 @@ export default {
     },
     extend: {
       letterSpacing: {
-        '0.2':'0.0125rem'
+        '0.2':'0.0125rem',
+        '4.5': '1.125rem',
       },
       strokeWidth: {
         '0.5':'0.125rem'
@@ -23,6 +24,13 @@ export default {
       },
       boxShadow: {
         'DEFAULT':'4px 4px 20px 0px #E6E8EE'
+      },
+      maxWidth:{
+        '37.5' :'9.375rem'
+      },
+      spacing:{
+        '37.5' :'9.375rem',
+        '87.5': '21.875rem'
       }
     },
     colors:{
