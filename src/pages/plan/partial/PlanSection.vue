@@ -49,7 +49,8 @@
     <div class="bg-background rounded-10 p-6 mb-6">
       <p class="text-blue-dark mb-4">
         Динамика прироста плана за период с:
-        <SmallDatePicker></SmallDatePicker> по 05.12.2023
+        <SmallDatePicker v-model="fromDate"></SmallDatePicker> по
+        {{ moment().format("DD.MM.YYYY") }}
       </p>
       <div class="flex gap-10">
         <h3 class="text-blue">+90%</h3>
@@ -67,7 +68,8 @@ import PieDiagramIcon from "@/assets/icons/PieDiagram.svg";
 import PieDiagramBlock from "./PieDiagramBlock.vue";
 import type { IPlanChartItem } from "./PieDiagramBlock.vue";
 import SmallDatePicker from "@/components/DatePickers/SmallDatePicker.vue";
-
+import moment from "moment";
+const fromDate = ref<Date>();
 const activeTab = ref("all");
 const tabs: ITab[] = [
   {
