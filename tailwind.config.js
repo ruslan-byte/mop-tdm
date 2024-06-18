@@ -98,6 +98,41 @@ export default {
         'h4': {
           fontSize: '1.25rem',
           lineHeight: '1.5125rem',
+        },
+        'thead': {
+          height: '5rem',
+          
+        },
+        'th': {
+          textAlign: 'left',
+          paddingLeft:'1.5rem',
+          color:theme('colors.blue-dark'),
+          background: theme('colors.blue-light'),
+          fontWeight: '600',
+          '&:first-child':{
+            borderRadius: '5px 0 0 5px',
+          },
+          '&:last-child':{
+            borderRadius: '0 5px 5px 0',
+          }
+        },
+        'td': {
+          textAlign: 'left',
+          paddingLeft:'1.5rem',
+          background: theme('colors.white'),
+          '&:first-child':{
+            borderRadius: '5px 0 0 5px',
+          },
+          '&:last-child':{
+            borderRadius: '0 5px 5px 0',
+          }
+        },
+        'tr': {
+          height:'56px'
+        },
+        'table': {
+          borderCollapse: 'separate',
+          borderSpacing: '0 0.5rem'
         }
       })
       addComponents({

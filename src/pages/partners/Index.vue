@@ -2,7 +2,7 @@
     <div class="g-container py-8">
         <BreadCrumbs :links="BreadCrumbsLinks" class="mb-8"></BreadCrumbs>
         <h1 class="mb-8">Партнеры</h1>
-        <div class="flex gap-6">
+        <div class="flex gap-6 mb-6">
             <SearchField class="w-[38rem]"></SearchField>
             <Dropdown
                 :options="deltaOptions"
@@ -16,6 +16,47 @@
                 v-model="activeSortValue"
             ></Dropdown>
         </div>
+        <table class="w-full">
+            <thead>
+                <th class="w-[38rem] pl-8">Название</th>
+                <th class="w-[13.4375rem]">План</th>
+                <th class="w-[13.4375rem]">Факт</th>
+                <th class="w-[12,5625rem] pr-8">% выполнения плана</th>
+            </thead>
+
+            <tr v-for="item of 10">
+                <td class="text-blue-dark pl-8">
+                    <router-link
+                        to="/partners/0"
+                        class="hover:text-blue active:text-blue-pressed"
+                    >
+                        Энергосберегающие технологии
+                    </router-link>
+                </td>
+                <td>
+                    <div class="flex gap-2 items-center">
+                        <span class="text-gray text-small"> План: </span>
+                        <span class="text-main"> 670 878,00 ₽</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="flex gap-2 items-center">
+                        <span class="text-gray text-small"> Факт: </span>
+                        <span class="text-blue text-caption">
+                            661 517,61 ₽</span
+                        >
+                    </div>
+                </td>
+                <td class="pr-8">
+                    <div class="flex gap-2 items-center">
+                        <span class="text-gray text-small">
+                            % выполнения:
+                        </span>
+                        <span class="text-blue text-caption"> 11% </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </template>
 <script setup lang="ts">
