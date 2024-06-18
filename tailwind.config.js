@@ -151,6 +151,9 @@ export default {
             color: theme('colors.gray-light'),
             stroke: theme('colors.gray-light')
           },
+        },
+        '.stroke-round':{
+          strokeLinecap: 'round'
         }
       })
 
