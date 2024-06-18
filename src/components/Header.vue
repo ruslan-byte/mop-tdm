@@ -9,10 +9,9 @@
         </router-link>
         <nav class="text-blue-dark">
           <NavItem class="mr-10" to="/">Мой план-факт</NavItem>
-          <NavItem class="mr-10" to="/order-shipments">Отгрузки</NavItem>
           <NavItem class="mr-10" to="/partners">Партнеры</NavItem>
           <NavItem class="mr-10" to="/sku">SKU</NavItem>
-          <NavItem to="/profile">Мои данные</NavItem>
+          <NavItem to="/order-shipments">Отгрузки</NavItem>
         </nav>
       </div>
       <div class="flex items-end gap-5">
