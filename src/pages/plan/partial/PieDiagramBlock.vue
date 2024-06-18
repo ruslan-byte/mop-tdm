@@ -23,12 +23,9 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { computed } from "vue";
 import DiagramItemList from "./DiagramItemList.vue";
 import TotalSumBlock from "./TotalSumBlock.vue";
+import { IPlanChartItem } from "@/types/chart";
 ChartJS.register(ArcElement, Tooltip);
-export interface IPlanChartItem {
-  partnerName: string;
-  factPercent: number;
-  factSum: number;
-}
+
 const itemsColors = [
   "#21B5C2",
   "#5C6AFF",

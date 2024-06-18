@@ -112,7 +112,7 @@ import { ref, computed } from "vue";
 import BarDiagramIcon from "@/assets/icons/BarDiagram.svg";
 import PieDiagramIcon from "@/assets/icons/PieDiagram.svg";
 import PieDiagramBlock from "./PieDiagramBlock.vue";
-import type { IPlanChartItem } from "./PieDiagramBlock.vue";
+import { IPlanChartItem } from "@/types/chart";
 import SmallDatePicker from "@/components/DatePickers/SmallDatePicker.vue";
 import moment from "moment";
 import Select from "@/components/Dropdowns/Select.vue";
@@ -137,76 +137,95 @@ const tabs: ITab[] = [
   },
 ];
 const chartData: IPlanChartItem[] = [
-  { partnerName: "АВЕНТА", factPercent: 6, factSum: 3280252.68 },
+  {
+    partnerName: "АВЕНТА",
+    factPercent: 6,
+    factSum: 3280252.68,
+  },
+
   {
     partnerName: "ИП Вербовский Иван Борисович",
     factPercent: 5,
     factSum: 2733543.9,
+    deltaPercent: 5,
   },
   {
     partnerName: "Энергосберегающие технологии",
     factPercent: 11.5,
     factSum: 670878.0,
+    deltaPercent: 1,
   },
   {
     partnerName: "ИП Кондратьев А. С.",
     factPercent: 5.5,
     factSum: 6287150.97,
+    deltaPercent: 5,
   },
   {
     partnerName: "ЭНЕРГОСИТИ г. Орел",
     factPercent: 8,
     factSum: 4373670.24,
+    deltaPercent: 20,
   },
   {
     partnerName: "МАКСЭЛЕКТРО",
     factPercent: 5,
     factSum: 2733543.9,
+    deltaPercent: 5,
   },
   {
     partnerName: "ЭЛЕКТРОСВЕТ Орел",
     factPercent: 8,
     factSum: 4373670.24,
+    deltaPercent: 5,
   },
   {
     partnerName: "Дельта-плюс",
     factPercent: 5,
     factSum: 2733543.9,
+    deltaPercent: 5,
   },
   {
     partnerName: "ЛЕДБРОКЕР",
     factPercent: 11,
     factSum: 6013796.58,
+    deltaPercent: 5,
   },
   {
     partnerName: "Партия Света",
     factPercent: 5,
     factSum: 2733543.9,
+    deltaPercent: 5,
   },
   {
     partnerName: "Лайт",
     factPercent: 5,
     factSum: 2733543.9,
+    deltaPercent: 5,
   },
   {
     partnerName: "КЕНАЗ ООО",
     factPercent: 6.5,
     factSum: 3553607.07,
+    deltaPercent: 5,
   },
   {
     partnerName: "Интердекор (г.Тула)",
     factPercent: 6,
     factSum: 3280252.68,
+    deltaPercent: 5,
   },
   {
     partnerName: "ЭлектроСтрой ООО",
     factPercent: 5.5,
     factSum: 3006898.29,
+    deltaPercent: 5,
   },
   {
     partnerName: "ИП Чекрыгина О. А.",
     factPercent: 7,
     factSum: 3826961.46,
+    deltaPercent: 5,
   },
 ];
 

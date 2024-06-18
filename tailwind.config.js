@@ -23,14 +23,22 @@ export default {
         '10':'0.625rem'
       },
       boxShadow: {
-        'DEFAULT':'4px 4px 20px 0px #E6E8EE'
+        'DEFAULT':'4px 4px 20px 0px #E6E8EE',
+        'tooltip': '1px 1px 5px 0px #C6C5C5'
+      },
+      dropShadow: {
+        tooltip:'1px 1px 5px #C6C5C5'
       },
       maxWidth:{
         '37.5' :'9.375rem'
       },
       spacing:{
         '37.5' :'9.375rem',
+        '75': '18.75rem',
         '87.5': '21.875rem'
+      },
+      lineHeight:{
+        '3.5':'0.875rem'
       }
     },
     colors:{
