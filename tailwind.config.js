@@ -189,7 +189,52 @@ export default {
         },
         '.stroke-round':{
           strokeLinecap: 'round'
+        },
+        '.g-radio-button': {
+          display: 'flex',
+          alignItems: 'center',
+          cursor: 'pointer',
+          gap:theme('spacing.2'),
+          '& svg circle:first-child':{
+            stroke: theme('colors.gray-2')
+          },
+          '&:hover svg circle:first-child': {
+            stroke: theme('colors.orange-hover')
+          },
+          '&:active svg circle': {
+            '&:first-child': {
+                stroke: theme('colors.orange-pressed')
+            },
+            '&:last-child': {
+                fill: theme('colors.orange-pressed')
+            }
+          }
+        },
+        '.g-radio-button--active': {
+          '& svg circle:first-child':{
+            stroke: theme('colors.orange')
+          },
+          '& svg circle:last-child':{
+            fill: theme('colors.orange')
+          },
+        },
+        '.g-radio-button--disabled': {
+          '& svg circle:first-child':{
+            stroke: theme('colors.gray-light')
+          },
+          '&:hover svg circle:first-child': {
+            stroke: theme('colors.gray-light')
+          },
+          '&:active svg circle': {
+            '&:first-child': {
+                stroke: theme('colors.gray-light')
+            },
+            '&:last-child': {
+                fill: theme('colors.transparent')
+            }
+          }
         }
+
       })
 
     })
