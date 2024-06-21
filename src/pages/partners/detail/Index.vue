@@ -15,7 +15,20 @@
             </div>
         </div>
         <div class="flex gap-8">
-            <PlanSection class="w-[44.5625rem]"></PlanSection>
+            <div class="w-[44.5625rem]">
+                <PlanSection class="mb-6"></PlanSection>
+                <div class="flex items-center justify-between">
+                    <p class="text-blue-dark text-small leading-4">
+                        Вы можете задать вопрос по любому из блоков на этой
+                        странице.
+                    </p>
+                    <button
+                        class="g-button g-button--blue-linear px-4 py-2 h-8"
+                    >
+                        Задать вопрос
+                    </button>
+                </div>
+            </div>
             <div class="g-white-block flex-1"></div>
         </div>
     </div>

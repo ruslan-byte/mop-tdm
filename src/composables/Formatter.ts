@@ -1,5 +1,5 @@
 export class Formatter {
-    isWithZero:boolean = true
+    protected isWithZero:boolean = true
     sum(field:string | number){
         
         return this.isWithZero ? (+field).toLocaleString('RU-ru', {minimumFractionDigits:2, maximumFractionDigits:2}):(+field).toLocaleString('RU-ru', {maximumFractionDigits:0})

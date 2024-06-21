@@ -20,7 +20,9 @@
                 :data="data"
             ></QuartalBlock>
         </div>
-        <YearBlock></YearBlock>
+        <YearBlock :data="YearBlockData" class="mb-6"></YearBlock>
+        <SuperBlock :data="superBlockData" class="mb-6"></SuperBlock>
+        <KppSection :total="30000000" :accountedPart="15000000"></KppSection>
     </div>
 </template>
 <script setup lang="ts">
@@ -28,8 +30,9 @@ import Tabs, { ITab } from '@/components/Tabs.vue'
 import { ref } from 'vue'
 import UpdateBlock from '@/components/UpdateBlock.vue'
 import QuartalBlock, { IQuartalBlockData } from './QuartalBlock.vue'
-import YearBlock from './YearBlock.vue'
-
+import YearBlock, { IYearBlockData } from './YearBlock.vue'
+import SuperBlock, { ISuperBlockData } from './SuperBlock.vue'
+import KppSection from './KppSection.vue'
 const activeTab = ref('2022')
 const tabs: ITab[] = [
     { value: '2022', label: '2022' },
@@ -82,5 +85,23 @@ const quartalsData: IQuartalBlockData[] = [
         dynamicPercent: 12
     }
 ]
+const YearBlockData: IYearBlockData = {
+    factSum: 28000000,
+    planSum: 30000000,
+    electroSum: 18200000,
+    kppSum: 9800000,
+    factPercent: 93.33,
+    electroPercent: 65,
+    kppPercent: 35,
+    dinamicPercent: 12,
+    quartalPercents: [35, 33, 25.33, 0],
+    standartBonusSum: 450000
+}
+const superBlockData: ISuperBlockData = {
+    totalPercent: 200.34,
+    dynamicPercent: 12,
+    factSum: 60102000,
+    planSum: 30000000
+}
 </script>
 <style lang="scss"></style>

@@ -13,6 +13,7 @@ export default {
     extend: {
       letterSpacing: {
         '0.2':'0.0125rem',
+        '3.75': '0.9375rem',
         '4.5': '1.125rem',
       },
       strokeWidth: {
@@ -151,6 +152,8 @@ export default {
           boxShadow: theme('boxShadow.DEFAULT')
         },
         '.g-button': {
+        },
+        '.g-button--orange': {
           paddingTop: '0.375rem',
           paddingBottom: '0.375rem',
           paddingLeft: '3.1875rem',
@@ -170,7 +173,7 @@ export default {
             backgroundColor: theme('colors.gray-light')
           },
         },
-        '.g-button-reset': {
+        '.g-button--reset': {
           color:theme('colors.gray'),
           fontSize: theme('fontSize.caption'),
           stroke: theme('colors.gray'),
@@ -185,6 +188,28 @@ export default {
           '&:disabled': {
             color: theme('colors.gray-light'),
             stroke: theme('colors.gray-light')
+          },
+        },
+        '.g-button--blue-linear': {
+          paddingTop: '0.75rem',
+          paddingBottom: '0.75rem',
+          paddingLeft: '3.0625rem',
+          paddingRight: '3.0625rem',
+          lineHeight: '1rem',
+          color:theme('colors.blue'),
+          borderRadius:theme('borderRadius.DEFAULT'),
+          fontSize:theme('fontSize.caption'),
+          border:`1px solid ${theme('colors.blue')}`,
+          height:'2.5rem',
+          '&:hover': {
+            borderColor: theme('colors.blue-hover')
+          },
+          '&:active': {
+            borderColor: theme('colors.blue-pressed')
+          },
+          '&:disabled': {
+            borderColor: theme('colors.gray'),
+            color:theme('colors.gray')
           },
         },
         '.stroke-round':{
