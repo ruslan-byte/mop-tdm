@@ -118,7 +118,7 @@
                     </button>
                 </div>
                 <button
-                    class="g-button g-button--orange mb-2"
+                    class="g-button g-button--orange mb-2 text-small h-7.5 w-full"
                     @click="updateNewDate"
                 >
                     Применить

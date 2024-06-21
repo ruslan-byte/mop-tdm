@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 const plugin = require('tailwindcss/plugin')
+import buttonsPlugin from './src/plugins/buttons'
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -11,10 +12,17 @@ export default {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
     extend: {
+      spacing:{
+        '37.5' :'9.375rem',
+        '75': '18.75rem',
+        '87.5': '21.875rem',
+        '7.5': '1.875rem'
+      },
       letterSpacing: {
         '0.2':'0.0125rem',
         '3.75': '0.9375rem',
         '4.5': '1.125rem',
+        
       },
       strokeWidth: {
         '0.5':'0.125rem'
@@ -33,11 +41,7 @@ export default {
       maxWidth:{
         '37.5' :'9.375rem'
       },
-      spacing:{
-        '37.5' :'9.375rem',
-        '75': '18.75rem',
-        '87.5': '21.875rem'
-      },
+      
       lineHeight:{
         '3.5':'0.875rem'
       }
@@ -151,67 +155,7 @@ export default {
           borderRadius: theme('borderRadius.10'),
           boxShadow: theme('boxShadow.DEFAULT')
         },
-        '.g-button': {
-        },
-        '.g-button--orange': {
-          paddingTop: '0.375rem',
-          paddingBottom: '0.375rem',
-          paddingLeft: '3.1875rem',
-          paddingRight: '3.1875rem',
-          lineHeight: '1.125rem',
-          backgroundColor: theme('colors.orange'),
-          color:theme('colors.white'),
-          borderRadius:theme('borderRadius.DEFAULT'),
-          fontSize:theme('fontSize.small'),
-          '&:hover': {
-            backgroundColor: theme('colors.orange-hover')
-          },
-          '&:active': {
-            backgroundColor: theme('colors.orange-pressed')
-          },
-          '&:disabled': {
-            backgroundColor: theme('colors.gray-light')
-          },
-        },
-        '.g-button--reset': {
-          color:theme('colors.gray'),
-          fontSize: theme('fontSize.caption'),
-          stroke: theme('colors.gray'),
-          '&:hover': {
-            color: theme('colors.main'),
-            stroke: theme('colors.main')
-          },
-          '&:active': {
-            color: theme('colors.black'),
-            stroke: theme('colors.black')
-          },
-          '&:disabled': {
-            color: theme('colors.gray-light'),
-            stroke: theme('colors.gray-light')
-          },
-        },
-        '.g-button--blue-linear': {
-          paddingTop: '0.75rem',
-          paddingBottom: '0.75rem',
-          paddingLeft: '3.0625rem',
-          paddingRight: '3.0625rem',
-          lineHeight: '1rem',
-          color:theme('colors.blue'),
-          borderRadius:theme('borderRadius.DEFAULT'),
-          fontSize:theme('fontSize.caption'),
-          border:`1px solid ${theme('colors.blue')}`,
-          height:'2.5rem',
-          '&:hover': {
-            borderColor: theme('colors.blue-hover')
-          },
-          '&:active': {
-            borderColor: theme('colors.blue-pressed')
-          },
-          '&:disabled': {
-            borderColor: theme('colors.gray'),
-            color:theme('colors.gray')
-          },
-        },
+        
         '.stroke-round':{
           strokeLinecap: 'round'
         },
@@ -262,7 +206,8 @@ export default {
 
       })
 
-    })
+    }),
+    buttonsPlugin
   ],
 }
 
