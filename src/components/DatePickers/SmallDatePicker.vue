@@ -124,7 +124,7 @@
                     Применить
                 </button>
                 <button
-                    class="g-button--reset mx-auto block"
+                    class="g-inline-button g-inline-button--gray-black mx-auto block text-caption"
                     @click="resetDate"
                 >
                     Сбросить

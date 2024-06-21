@@ -171,9 +171,44 @@ export default plugin(({ addComponents, theme }) => {
                 background: theme('colors.transparent')
             }
         },
-        '.g-button--reset': {
+        '.g-inline-button': {
+            lineHeight: theme('spacing.5'),
+            fontSize: theme('fontSize.small')
+        },
+        '.g-inline-button--blue-dark': {
+            color: theme('colors.blue-dark'),
+            stroke: theme('colors.blue-dark'),
+            '&:hover': {
+                color: theme('colors.blue'),
+                stroke: theme('colors.blue')
+            },
+            '&:active': {
+                color: theme('colors.blue-pressed'),
+                stroke: theme('colors.blue-pressed')
+            },
+            '&:disabled': {
+                color: theme('colors.gray-2'),
+                stroke: theme('colors.gray-2')
+            }
+        },
+        '.g-inline-button--blue': {
+            color: theme('colors.blue'),
+            stroke: theme('colors.blue'),
+            '&:hover': {
+                color: theme('colors.blue-hover'),
+                stroke: theme('colors.blue-hover')
+            },
+            '&:active': {
+                color: theme('colors.blue-pressed'),
+                stroke: theme('colors.blue-pressed')
+            },
+            '&:disabled': {
+                color: theme('colors.gray-2'),
+                stroke: theme('colors.gray-2')
+            }
+        },
+        '.g-inline-button--gray-black': {
             color: theme('colors.gray'),
-            fontSize: theme('fontSize.caption'),
             stroke: theme('colors.gray'),
             '&:hover': {
                 color: theme('colors.main'),
@@ -188,26 +223,36 @@ export default plugin(({ addComponents, theme }) => {
                 stroke: theme('colors.gray-light')
             }
         },
-        '.g-button--blue-linear': {
-            paddingTop: '0.75rem',
-            paddingBottom: '0.75rem',
-            paddingLeft: '3.0625rem',
-            paddingRight: '3.0625rem',
-            lineHeight: '1rem',
-            color: theme('colors.blue'),
-            borderRadius: theme('borderRadius.DEFAULT'),
-            fontSize: theme('fontSize.caption'),
-            border: `1px solid ${theme('colors.blue')}`,
-            height: '2.5rem',
+        '.g-inline-button--gray': {
+            color: theme('colors.gray-2'),
+            stroke: theme('colors.gray-2'),
             '&:hover': {
-                borderColor: theme('colors.blue-hover')
+                color: theme('colors.gray'),
+                stroke: theme('colors.gray')
             },
             '&:active': {
-                borderColor: theme('colors.blue-pressed')
+                color: theme('colors.main'),
+                stroke: theme('colors.main')
             },
             '&:disabled': {
-                borderColor: theme('colors.gray'),
-                color: theme('colors.gray')
+                color: theme('colors.gray-light'),
+                stroke: theme('colors.gray-light')
+            }
+        },
+        '.g-inline-button--orange': {
+            color: theme('colors.orange'),
+            stroke: theme('colors.orange'),
+            '&:hover': {
+                color: theme('colors.orange-hover'),
+                stroke: theme('colors.orange-hover')
+            },
+            '&:active': {
+                color: theme('colors.orange-pressed'),
+                stroke: theme('colors.orange-pressed')
+            },
+            '&:disabled': {
+                color: theme('colors.gray-light'),
+                stroke: theme('colors.gray-light')
             }
         }
     })

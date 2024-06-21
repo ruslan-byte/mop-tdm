@@ -23,7 +23,7 @@
                         странице.
                     </p>
                     <button
-                        class="g-button g-button--blue-linear px-4 py-2 h-8"
+                        class="g-button g-button--linear-blue px-4 py-2 h-8 font-normal"
                     >
                         Задать вопрос
                     </button>
@@ -31,9 +31,6 @@
             </div>
             <div class="g-white-block flex-1"></div>
         </div>
-
-        <button class="g-button g-button--white">Новый заказ</button>
-        <button class="g-button g-button--white" disabled>Новый заказ</button>
     </div>
 </template>
 <script setup lang="ts">
