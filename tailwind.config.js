@@ -13,10 +13,12 @@ export default {
     },
     extend: {
       spacing:{
+        '3.75': '0.9375rem',
+        '7.5': '1.875rem',
         '37.5' :'9.375rem',
         '75': '18.75rem',
         '87.5': '21.875rem',
-        '7.5': '1.875rem'
+        
       },
       letterSpacing: {
         '0.2':'0.0125rem',

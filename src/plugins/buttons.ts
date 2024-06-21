@@ -207,6 +207,22 @@ export default plugin(({ addComponents, theme }) => {
                 stroke: theme('colors.gray-2')
             }
         },
+        '.g-inline-button--blue-fill': {
+            color: theme('colors.blue'),
+            fill: theme('colors.blue'),
+            '&:hover': {
+                color: theme('colors.blue-hover'),
+                fill: theme('colors.blue-hover')
+            },
+            '&:active': {
+                color: theme('colors.blue-pressed'),
+                fill: theme('colors.blue-pressed')
+            },
+            '&:disabled': {
+                color: theme('colors.gray-2'),
+                fill: theme('colors.gray-2')
+            }
+        },
         '.g-inline-button--gray-black': {
             color: theme('colors.gray'),
             stroke: theme('colors.gray'),

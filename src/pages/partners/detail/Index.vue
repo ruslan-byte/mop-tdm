@@ -1,6 +1,5 @@
 <template>
     <div class="g-container py-8">
-        <Tooltip placement="left">as</Tooltip>
         <BreadCrumbs :links="breadCrumbsLink" class="mb-8"></BreadCrumbs>
         <div class="flex justify-between mb-10">
             <h1>Энергосберегающие технологии</h1>
@@ -18,16 +17,20 @@
         <div class="flex gap-8">
             <div class="w-[44.5625rem]">
                 <PlanSection class="mb-6"></PlanSection>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between mb-6">
                     <p class="text-blue-dark text-small leading-4">
                         Вы можете задать вопрос по любому из блоков на этой
                         странице.
                     </p>
                     <button
-                        class="g-button g-button--linear-blue px-4 py-2 h-8 font-normal"
+                        class="g-button g-button--linear-blue px-4 py-2 h-8 font-normal text-small"
                     >
                         Задать вопрос
                     </button>
+                </div>
+                <div class="flex gap-6">
+                    <BonusSection></BonusSection>
+                    <FineSection></FineSection>
                 </div>
             </div>
             <div class="g-white-block flex-1"></div>
@@ -37,7 +40,9 @@
 <script setup lang="ts">
 import PlanSection from './partial/PlanSection.vue'
 import BreadCrumbs, { IBreadCrumbLink } from '@/components/BreadCrumbs.vue'
-import Tooltip from '@/components/Tooltip.vue'
+import BonusSection from './partial/BonusSection.vue'
+import FineSection from './partial/FineSection.vue'
+
 const breadCrumbsLink: IBreadCrumbLink[] = [
     {
         id: '0',

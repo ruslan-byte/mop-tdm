@@ -1,9 +1,9 @@
 <template>
-    <div class="g-tooltip inline-block" @mouseleave="hidePopper">
+    <div class="g-tooltip" @mouseleave="hidePopper">
         <div
             ref="reference"
             @mouseenter="showPopper"
-            class="inline-block g-tooltip__reference"
+            class="g-tooltip__reference"
         >
             <slot></slot>
         </div>
@@ -40,7 +40,7 @@ import { createPopper, flip } from '@popperjs/core'
 const reference = ref<HTMLDivElement>()
 const popper = ref<HTMLDivElement>()
 const tooltipArrow = ref<HTMLDivElement>()
-const props = defineProps<{ placement: 'left' | 'right' | 'top' | 'button' }>()
+const props = defineProps<{ placement?: 'left' | 'right' | 'top' | 'bottom' }>()
 const isShowPopper = ref(false)
 
 let isPooperInstanceExist = ref<boolean>(false)
@@ -52,7 +52,7 @@ function initPupper() {
             popper.value,
             {
                 strategy: 'fixed',
-                placement: 'top',
+                placement: props.placement ?? 'top',
                 modifiers: [
                     {
                         name: 'flip',
