@@ -1,5 +1,6 @@
 <template>
     <div class="g-container py-8">
+        <Tooltip placement="left">as</Tooltip>
         <BreadCrumbs :links="breadCrumbsLink" class="mb-8"></BreadCrumbs>
         <div class="flex justify-between mb-10">
             <h1>Энергосберегающие технологии</h1>
@@ -36,6 +37,7 @@
 <script setup lang="ts">
 import PlanSection from './partial/PlanSection.vue'
 import BreadCrumbs, { IBreadCrumbLink } from '@/components/BreadCrumbs.vue'
+import Tooltip from '@/components/Tooltip.vue'
 const breadCrumbsLink: IBreadCrumbLink[] = [
     {
         id: '0',
