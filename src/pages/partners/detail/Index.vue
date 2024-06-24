@@ -1,19 +1,11 @@
 <template>
-    <div class="g-container py-8">
+    <div class="g-container py-8 max-w-[70.875rem] pr-[8.625rem]">
         <BreadCrumbs :links="breadCrumbsLink" class="mb-8"></BreadCrumbs>
         <div class="flex justify-between mb-10">
             <h1>Энергосберегающие технологии</h1>
-            <div class="flex items-center">
-                <span class="text-caption text-gray mr-2">
-                    Использование ЛК партнером:
-                </span>
-                <div
-                    class="bg-green-pressed px-4 py-1 leading-5 text-white inline-block rounded-full"
-                >
-                    Разрешено
-                </div>
-            </div>
+            <ApprovalBlock></ApprovalBlock>
         </div>
+
         <div class="flex gap-8">
             <div class="w-[44.5625rem]">
                 <PlanSection class="mb-6"></PlanSection>
@@ -54,7 +46,9 @@
                 </div>
                 <BalanceSection :data="activeData"></BalanceSection>
             </div>
-            <div class="g-white-block flex-1"></div>
+            <div class="flex-1">
+                <AccessSection></AccessSection>
+            </div>
         </div>
     </div>
 </template>
@@ -68,6 +62,8 @@ import BalanceSection, {
 } from './partial/BalanceSection.vue'
 import { ref } from 'vue'
 import { computed } from 'vue'
+import AccessSection from './partial/AccessSection.vue'
+import ApprovalBlock from './partial/ApprovalBlock.vue'
 const breadCrumbsLink: IBreadCrumbLink[] = [
     {
         id: '0',
