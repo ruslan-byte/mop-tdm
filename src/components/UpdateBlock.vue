@@ -16,6 +16,6 @@
 <script setup lang="ts">
 import ClockIcon from '@/assets/icons/Clock.svg'
 import moment from 'moment'
-defineProps<{ date?: string }>()
+defineProps<{ date?: string | Date }>()
 </script>
 <style lang="scss"></style>

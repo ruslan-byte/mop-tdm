@@ -3,7 +3,7 @@
         <BreadCrumbs :links="breadCrumbsLink" class="mb-8"></BreadCrumbs>
         <div class="flex justify-between mb-10">
             <h1>Энергосберегающие технологии</h1>
-            <ApprovalBlock></ApprovalBlock>
+            <ApprovalBlock is-success></ApprovalBlock>
         </div>
 
         <div class="flex gap-8">
@@ -47,7 +47,13 @@
                 <BalanceSection :data="activeData"></BalanceSection>
             </div>
             <div class="flex-1">
-                <AccessSection></AccessSection>
+                <AccessSection class="mb-6"></AccessSection>
+                <LimitSection
+                    :limits="limits"
+                    :free-update-at="limitUpdateAt"
+                    :total-update-at="limitUpdateAt"
+                >
+                </LimitSection>
             </div>
         </div>
     </div>
@@ -64,6 +70,8 @@ import { ref } from 'vue'
 import { computed } from 'vue'
 import AccessSection from './partial/AccessSection.vue'
 import ApprovalBlock from './partial/ApprovalBlock.vue'
+import LimitSection, { ILimit } from './partial/LimitSection.vue'
+import moment from 'moment'
 const breadCrumbsLink: IBreadCrumbLink[] = [
     {
         id: '0',
@@ -347,5 +355,32 @@ const activeData = computed(() => {
             return balanceSectionDataSuccess
     }
 })
+const limits: ILimit[] = [
+    {
+        stockName: 'Склад г. Рыбинск',
+        name: 'Кабельно-проводниковая продукция',
+        totalLimit: 8900000,
+        freeLimit: 6900000
+    },
+    {
+        stockName: 'кроме Рыбинска',
+        name: 'Кабельно-проводниковая продукция',
+        totalLimit: 8900000,
+        freeLimit: 8900000
+    },
+    {
+        stockName: 'Склад г. Рыбинск',
+        name: 'Электротехническая продукция',
+        totalLimit: 5000000,
+        freeLimit: 5000000
+    },
+    {
+        stockName: 'кроме Рыбинска',
+        name: 'Электротехническая продукция',
+        totalLimit: 8000000,
+        freeLimit: 8900000
+    }
+]
+const limitUpdateAt = new Date()
 </script>
 <style lang="scss"></style>
