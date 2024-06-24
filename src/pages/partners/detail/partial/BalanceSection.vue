@@ -504,7 +504,7 @@ import CalendarIcon from '@/assets/icons/Calendar.svg'
 import UpdateBlock from '@/components/UpdateBlock.vue'
 import SuccessIcon from '@/assets/icons/Success.svg'
 import ErrorIcon from '@/assets/icons/Error.svg'
-import { Formatter } from '@/composables/Formatter'
+import { Formatter } from '@/helpers/Formatter'
 const formatter = new Formatter()
 defineProps<{ data: IBalanceSectionData }>()
 interface IDetailTotalOverdue {

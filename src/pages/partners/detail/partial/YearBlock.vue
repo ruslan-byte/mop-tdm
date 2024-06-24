@@ -155,7 +155,7 @@
 import MedalIcon from '@/assets/icons/Medal.svg'
 import RadioButton from '@/components/Form/RadioButton.vue'
 import YearDoughnutChart, { IYearDoughnutData } from './YearDoughnutChart.vue'
-import { Formatter } from '@/composables/Formatter'
+import { Formatter } from '@/helpers/Formatter'
 import moment from 'moment'
 const formatter = new Formatter(false)
 import { ref } from 'vue'
