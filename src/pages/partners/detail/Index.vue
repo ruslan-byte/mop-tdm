@@ -6,6 +6,7 @@
             <ApprovalBlock is-success></ApprovalBlock>
         </div>
 
+        <ManagerErrorBanner class="mb-6"></ManagerErrorBanner>
         <div class="flex gap-8">
             <div class="w-[44.5625rem]">
                 <PlanSection class="mb-6"></PlanSection>
@@ -71,7 +72,8 @@ import { computed } from 'vue'
 import AccessSection from './partial/AccessSection.vue'
 import ApprovalBlock from './partial/ApprovalBlock.vue'
 import LimitSection, { ILimit } from './partial/LimitSection.vue'
-import moment from 'moment'
+import ManagerErrorBanner from './partial/ManagerErrorBanner.vue'
+
 const breadCrumbsLink: IBreadCrumbLink[] = [
     {
         id: '0',

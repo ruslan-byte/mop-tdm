@@ -1,4 +1,4 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg  viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10" cy="10" r="10" />
 <ellipse cx="9.875" cy="15.1875" rx="0.875" ry="0.8125" fill="white"/>
 <path d="M9.875 12.75C9.69346 12.75 9.5435 12.6083 9.53325 12.427L9.04942 3.8736C9.02259 3.39932 9.39996 3 9.875 3C10.35 3 10.7274 3.39932 10.7006 3.8736L10.2168 12.427C10.2065 12.6083 10.0565 12.75 9.875 12.75Z" fill="white"/>

@@ -26,7 +26,7 @@
                 class="flex items-start gap-2"
                 v-else-if="data.totalBalance < 0"
             >
-                <ErrorIcon class="fill-red flex-[0_0_auto]"></ErrorIcon>
+                <ErrorIcon class="fill-red flex-[0_0_auto] h-5 w-5"></ErrorIcon>
                 <span class="text-red text-caption">
                     У вас есть просроченная дебиторская <br />задолженность
                 </span>

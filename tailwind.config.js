@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 const plugin = require('tailwindcss/plugin')
 import buttonsPlugin from './src/plugins/buttons'
+import scrollbarPlugin from './src/plugins/scrollbar'
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -201,6 +202,7 @@ export default {
                 }
             })
         }),
-        buttonsPlugin
+        buttonsPlugin,
+        scrollbarPlugin
     ]
 }
