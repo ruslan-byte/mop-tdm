@@ -1,16 +1,17 @@
 <template>
     <div class="g-white-block py-8 px-6">
         <div
-            class="flex gap-5 justify-between border-b border-gray-pale pb-4 mb-4"
+            class="flex gap-5 justify-between border-b border-gray-pale pb-[1.1875rem] mb-4"
         >
             <h3>Выполнение плана продаж</h3>
             <div>
-                <p class="text-small text-main">
+                <p class="text-small text-main leading-4 mb-1">
                     Показать динамику выполнения плана за:
                 </p>
+                <p class="leading-4 text-small text-end">дата</p>
             </div>
         </div>
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-between mb-4 items-center">
             <Tabs :tabs="tabs" v-model="activeTab" type="orange-blue"></Tabs>
             <UpdateBlock></UpdateBlock>
         </div>

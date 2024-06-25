@@ -17,7 +17,7 @@
         </div>
         <div class="flex gap-10 mb-2">
             <div class="flex items-center gap-2" v-if="data.totalBalance > 0">
-                <SuccessIcon class="fill-green"></SuccessIcon>
+                <SuccessIcon class="fill-green h-5 w-5"></SuccessIcon>
                 <span class="text-green text-caption">
                     Внесена предоплата
                 </span>

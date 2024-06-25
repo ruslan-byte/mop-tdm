@@ -7,12 +7,12 @@
                     props.data.amountUpToBonus
             }"
         >
-            <div class="flex items-center gap-4">
+            <div class="flex gap-4">
                 <div class="h-20 w-20 flex-0-auto">
                     <SuperDoughnutChart :data="chartData"></SuperDoughnutChart>
                 </div>
-                <div class="min-w-[12.8125rem]">
-                    <div class="flex gap-2 mb-2 items-center">
+                <div class="min-w-[12.8125rem] pt-1.25">
+                    <div class="flex gap-2 mb-2.5 items-center">
                         <p class="text-blue-dark font-semibold">Супер Рост</p>
                         <div
                             v-if="data.totalPercent >= 100"
@@ -27,15 +27,15 @@
                             Выполнение плана:
                         </div>
                         <div class="text-small leading-4 text-main">
-                            {{ formatter.sum(props.data.factSum) }} ₽ из
-                            <span class="text-blue font-semibold"
+                            {{ formatter.sum(props.data.factSum) }}₽ из
+                            <span class="text-blue font-semibold pl-px"
                                 >{{ formatter.sum(props.data.planSum) }} ₽</span
                             >
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="pl-px">
                 <p class="mb-4 text-small text-blue leading-4">
                     Супер Рост — это программа для дистрибьюторов,<br />
                     которые стремятся добиться выдающихся<br />

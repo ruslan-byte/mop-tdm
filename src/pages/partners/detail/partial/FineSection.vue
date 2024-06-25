@@ -1,10 +1,10 @@
 <template>
-    <div class="g-white-block p-6 w-[18.25rem]">
+    <div class="g-white-block p-6 w-[18.25rem] pb-[1.125rem]">
         <div
-            class="border-b border-gray-light pb-4 mb-4 flex items-start justify-between"
+            class="border-b border-gray-light pb-3.5 mb-4 flex items-start justify-between"
         >
             <div>
-                <p class="flex gap-2 items-start">
+                <p class="flex gap-2 items-start mb-2">
                     <span class="font-semibold text-blue-dark leading-6">
                         Возмещения
                     </span>

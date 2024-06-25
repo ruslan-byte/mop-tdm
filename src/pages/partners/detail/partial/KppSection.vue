@@ -4,7 +4,7 @@
             class="pb-2.5 border-b border-gray-light mb-2.5 flex justify-between items-center"
         >
             <p class="text-blue-dark font-semibold">Продажи КПП</p>
-            <p class="leading-4 text-small text-gray">
+            <p class="leading-4 text-small text-gray pr-0.5">
                 Мы учитываем в факте до 50% закупок по КПП
             </p>
         </div>

@@ -52,7 +52,7 @@ const emit = defineEmits(['update:modelValue'])
             }
         }
         &--orange-blue {
-            @apply bg-blue-light hover:text-orange active:text-orange-pressed h-10 leading-6 py-2 px-4 disabled:bg-blue-pale disabled:text-gray-light;
+            @apply bg-blue-light hover:text-orange active:text-orange-pressed h-9 leading-6 py-2 px-4 disabled:bg-blue-pale disabled:text-gray-light text-caption leading-5;
 
             &.tabs__button--active {
                 @apply bg-orange text-white hover:bg-orange-hover active:bg-orange-pressed font-semibold;

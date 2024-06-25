@@ -1,13 +1,13 @@
 <template>
-    <div class="g-container py-8 max-w-[70.875rem] pr-[8.625rem]">
+    <div class="g-container py-8 max-w-[70.75rem] pr-[8.625rem]">
         <BreadCrumbs :links="breadCrumbsLink" class="mb-8"></BreadCrumbs>
         <div class="flex justify-between mb-10">
-            <h1>Энергосберегающие технологии</h1>
+            <h1 class="leading-[2.25rem]">Энергосберегающие технологии</h1>
             <ApprovalBlock is-success></ApprovalBlock>
         </div>
 
-        <ManagerErrorBanner class="mb-6"></ManagerErrorBanner>
-        <div class="flex gap-8">
+        <ManagerErrorBanner class="mb-6" v-if="false"></ManagerErrorBanner>
+        <div class="flex gap-[1.4375rem]">
             <div class="w-[44.5625rem]">
                 <PlanSection class="mb-6"></PlanSection>
                 <div class="flex items-center justify-between mb-6">
@@ -16,7 +16,7 @@
                         странице.
                     </p>
                     <button
-                        class="g-button g-button--linear-blue px-4 py-2 h-8 font-normal text-small"
+                        class="g-button g-button--linear-blue py-2 h-8 font-normal text-small px-3.75"
                     >
                         Задать вопрос
                     </button>
@@ -82,7 +82,7 @@ const breadCrumbsLink: IBreadCrumbLink[] = [
     },
     {
         id: '0',
-        label: 'Партнеры',
+        label: 'Sell In',
         to: '/partners'
     },
     {

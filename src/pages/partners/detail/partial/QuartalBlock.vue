@@ -4,10 +4,10 @@
         :class="{ 'outline outline-1 outline-blue': isThisActiveQuartal }"
     >
         <div class="flex gap-3 mb-4">
-            <div class="w-20 h-20">
+            <div class="w-20 h-[4.9375rem]">
                 <DoughnutChart :data="chartData"></DoughnutChart>
             </div>
-            <div class="flex-1">
+            <div class="flex-1 pt-[0.46875rem]">
                 <div class="flex gap-2 items-center mb-1.5 justify-between">
                     <p class="text-blue-dark font-semibold">
                         {{ data.quartal }} квартал
@@ -39,7 +39,7 @@
         </div>
         <div class="bg-white px-4 py-2 flex gap-6 rounded">
             <div>
-                <p class="text-gray text-small mb-1 leading-4">
+                <p class="text-gray text-small mb-1 leading-4 pr-px">
                     <span
                         class="inline-block h-[0.4375rem] w-[0.4375rem] bg-orange rounded-full"
                     ></span>
@@ -57,7 +57,7 @@
                 </p>
             </div>
             <div>
-                <p class="text-gray text-small mb-1 leading-4">
+                <p class="text-gray text-small mb-1 leading-[0.75rem] pt-0.5">
                     <span
                         class="inline-block h-[0.4375rem] w-[0.4375rem] bg-green-21 rounded-full"
                     ></span>

@@ -16,7 +16,10 @@
             </div>
         </div>
         <div>
-            <div class="bg-background p-4 rounded mb-4" v-for="limit of limits">
+            <div
+                class="bg-background p-4 rounded mb-[1.0625rem]"
+                v-for="limit of limits"
+            >
                 <p class="text-gray flex gap-2 mb-1.5">
                     <MapMarkIcon class="stroke-gray"></MapMarkIcon>
                     <span class="text-gray text-small leading-4">{{
@@ -24,7 +27,7 @@
                     }}</span>
                 </p>
                 <p
-                    class="text-black font-semibold pb-4 mb-4 border-b border-gray-light"
+                    class="text-black font-semibold pb-[0.875rem] mb-[0.9375rem] border-b border-gray-light"
                 >
                     {{ limit.name }}
                 </p>
@@ -36,7 +39,9 @@
                                 Общий размер лимита
                             </div>
                         </div>
-                        <div class="text-green font-semibold pl-3.5 leading-4">
+                        <div
+                            class="text-green font-semibold pl-3.5 leading-4 text-caption"
+                        >
                             {{ formatter.sum(limit.totalLimit) }} ₽
                         </div>
                     </div>
@@ -49,7 +54,9 @@
                                 Свободный лимит
                             </div>
                         </div>
-                        <div class="text-green font-semibold pl-3.5 leading-4">
+                        <div
+                            class="text-green font-semibold pl-3.5 leading-4 text-caption"
+                        >
                             {{ formatter.sum(limit.freeLimit) }} ₽
                         </div>
                     </div>

@@ -92,7 +92,7 @@ const chartData = computed(() => ({
 }))
 const options = {
     responsive: true,
-    cutout: '84%',
+    cutout: '87%',
 
     elements: {
         arc: {

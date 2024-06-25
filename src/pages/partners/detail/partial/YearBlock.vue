@@ -1,7 +1,7 @@
 <template>
     <div class="bg-background p-4 rounded">
-        <div class="flex mb-4">
-            <div class="h-[6.875rem] w-[6.875rem] mr-6">
+        <div class="flex mb-3.5">
+            <div class="h-[6.8125rem] w-[6.875rem] mr-6 pt-2.5">
                 <YearDoughnutChart
                     :data="YearDoughnutData"
                     :is-quartal="activeRadio == 'quartal'"
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div>
-                    <p class="text-small text-gray leading-4">
+                    <p class="text-small text-gray leading-3.5 mb-1">
                         Выполнение плана:
                     </p>
                     <div class="flex gap-1 mb-2">
@@ -35,8 +35,8 @@
                         </span>
                     </div>
                     <div class="flex gap-2">
-                        <div>
-                            <div class="flex items-center gap-1">
+                        <div class="pr-px">
+                            <div class="flex items-center gap-1 mb-1">
                                 <div
                                     class="h-[0.4375rem] w-[0.4375rem] bg-orange rounded-full"
                                 ></div>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="flex items-center gap-1">
+                            <div class="flex items-center gap-1 mb-1">
                                 <div
                                     class="h-[0.4375rem] w-[0.4375rem] bg-green-21 rounded-full"
                                 ></div>
@@ -89,14 +89,14 @@
                 <p class="text-caption text-blue-dark mb-2 leading-5">
                     Доля выполнения плана поквартально:
                 </p>
-                <div class="grid grid-cols-2 gap-[0.5rem_1rem]">
+                <div class="grid grid-cols-2 gap-[0.5rem_0.625rem]">
                     <div
-                        class="text-small text-main whitespace-nowrap"
+                        class="text-very-small text-main whitespace-nowrap leading-3.5"
                         v-for="(quartal, index) of data.quartalPercents"
                     >
                         {{ index + 1 }} квартал
                         <span
-                            class="font-bold"
+                            class="font-bold pl-1.5"
                             :class="{
                                 'text-orange font-bold': quartal !== 0,
                                 'text-gray font-normal': quartal == 0
@@ -110,7 +110,8 @@
         <div
             class="flex items-center"
             :class="{
-                'mb-4 border-b border-gray-light pb-4': data.standartBonusSum
+                'mb-2.5 border-b border-gray-light pb-3.75':
+                    data.standartBonusSum
             }"
         >
             <p
@@ -136,7 +137,10 @@
                 </span>
             </RadioButton>
         </div>
-        <div class="text-small flex items-center" v-if="data.standartBonusSum">
+        <div
+            class="text-small flex items-center leading-4"
+            v-if="data.standartBonusSum"
+        >
             <p class="mr-2">
                 Для получения
                 <strong class="font-normal text-blue"
@@ -145,7 +149,9 @@
                 в {{ moment().format('YYYY') }} году вам осталось заказать ещё
                 на:
             </p>
-            <span class="font-semibodl text-caption text-blue font-semibold">
+            <span
+                class="font-semibodl text-caption text-blue font-semibold leading-4"
+            >
                 {{ formatter.sum(data.standartBonusSum) }} ₽
             </span>
         </div>
