@@ -3,10 +3,10 @@
         <BreadCrumbs :links="breadCrumbsLink" class="mb-8"></BreadCrumbs>
         <div class="flex justify-between mb-10">
             <h1 class="leading-[2.25rem]">Энергосберегающие технологии</h1>
-            <ApprovalBlock is-success></ApprovalBlock>
+            <ApprovalBlock :is-active="true"></ApprovalBlock>
         </div>
 
-        <ManagerErrorBanner class="mb-6" v-if="false"></ManagerErrorBanner>
+        <ManagerErrorBanner class="mb-6" v-if="true"></ManagerErrorBanner>
         <div class="flex gap-[1.4375rem]">
             <div class="w-[44.5625rem]">
                 <PlanSection class="mb-6"></PlanSection>
@@ -384,5 +384,6 @@ const limits: ILimit[] = [
     }
 ]
 const limitUpdateAt = new Date()
+const loginData = { login: 'tesla10@tdme.ru', password: 'hlL4m09u' }
 </script>
 <style lang="scss"></style>

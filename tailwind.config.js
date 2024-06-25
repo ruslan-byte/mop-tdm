@@ -75,7 +75,8 @@ export default {
             'orange-pressed': '#EC7908',
             'red-pressed': '#E44C4C',
             'green-pressed': '#55CC86',
-            transparent: 'rgba(0,0,0,0)'
+            transparent: 'rgba(0,0,0,0)',
+            yellow: '#F4CE61'
         },
         fontSize: {
             caption: '0.875rem',

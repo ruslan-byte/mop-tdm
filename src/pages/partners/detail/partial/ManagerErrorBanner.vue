@@ -1,5 +1,5 @@
 <template>
-    <div class="g-white-block flex gap-4">
+    <div class="g-white-block flex gap-4 px-6">
         <ErrorIcon class="fill-red flex-[0_0_auto] w-8 h-8"></ErrorIcon>
         <div class="pt-2">
             <p class="text-main font-semibold leading-4 mb-4 text-caption">

@@ -1,10 +1,13 @@
 <template>
     <div class="flex items-center">
-        <span class="text-caption text-gray mr-2">
+        <span
+            class="text-caption text-gray"
+            :class="{ 'mr-[1.4375rem]': !isActive, 'mr-2': isActive }"
+        >
             Использование ЛК партнером:
         </span>
         <div
-            v-if="isSuccess"
+            v-if="isActive"
             class="bg-green-pressed px-4 py-1 leading-5 text-white inline-block rounded-full font-semibold text-caption"
         >
             Разрешено
@@ -39,6 +42,6 @@
 <script setup lang="ts">
 import TooltipInfo from '@/components/Tooltips/TooltipInfo.vue'
 
-defineProps<{ isSuccess: boolean }>()
+defineProps<{ isActive: boolean }>()
 </script>
 <style lang="scss"></style>
