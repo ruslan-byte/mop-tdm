@@ -16,7 +16,7 @@
     </nav>
 </template>
 <script setup lang="ts">
-import BreadCrumbsArrowIcon from '@/assets/icons/BreadCrumbsArrow.svg'
+import { BreadCrumbsArrowIcon } from '@/shared/Icons'
 export interface IBreadCrumbLink {
     id: string
     label: string

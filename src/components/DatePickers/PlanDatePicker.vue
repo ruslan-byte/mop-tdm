@@ -55,7 +55,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import ArrowIcon from '@/assets/icons/Arrow.svg'
+import { ArrowIcon } from '@/shared/Icons'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import { onMounted, ref } from 'vue'
 const datePicker = ref<InstanceType<typeof VueDatePicker>>()

@@ -7,7 +7,7 @@
     </Tooltip>
 </template>
 <script setup lang="ts">
-import QuestionIcon from '@/assets/icons/Question.svg'
+import { QuestionIcon } from '@/shared/Icons'
 import Tooltip from './Tooltip.vue'
 </script>
 <style lang="scss">

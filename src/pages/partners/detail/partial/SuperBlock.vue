@@ -62,7 +62,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import MedalIcon from '@/assets/icons/Medal.svg'
+import { MedalIcon } from '@/shared/Icons'
 import SuperDoughnutChart, { ISuperDougnutData } from './SuperDoughnutChart.vue'
 import { Formatter } from '@/helpers/Formatter'
 import moment from 'moment'

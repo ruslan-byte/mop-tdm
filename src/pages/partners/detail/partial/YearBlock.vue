@@ -158,7 +158,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import MedalIcon from '@/assets/icons/Medal.svg'
+import { MedalIcon } from '@/shared/Icons'
 import RadioButton from '@/components/Form/RadioButton.vue'
 import YearDoughnutChart, { IYearDoughnutData } from './YearDoughnutChart.vue'
 import { Formatter } from '@/helpers/Formatter'

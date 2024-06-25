@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 defineProps<{ placeholder: string }>()
-import ArrowIcon from '@/assets/icons/Arrow.svg'
+import { ArrowIcon } from '@/shared/Icons'
 import { ref } from 'vue'
 import vClickOutsideDirective from 'click-outside-vue3'
 const vClickOutside = vClickOutsideDirective.directive

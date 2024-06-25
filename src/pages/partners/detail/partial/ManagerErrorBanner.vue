@@ -35,7 +35,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import ErrorIcon from '@/assets/icons/Error.svg'
+import { ErrorIcon } from '@/shared/Icons'
 import ManagerModal, { IManagerItem } from './ManagerModal.vue'
 import { ref } from 'vue'
 import SuccessSendModal from './SuccessSendModal.vue'

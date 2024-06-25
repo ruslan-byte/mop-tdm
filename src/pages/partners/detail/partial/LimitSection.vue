@@ -67,7 +67,7 @@
 </template>
 <script setup lang="ts">
 import UpdateBlock from '@/components/UpdateBlock.vue'
-import MapMarkIcon from '@/assets/icons/MapMark.svg'
+import { MapMarkIcon } from '@/shared/Icons'
 import { Formatter } from '@/helpers/Formatter'
 const formatter = new Formatter(false)
 export interface ILimit {

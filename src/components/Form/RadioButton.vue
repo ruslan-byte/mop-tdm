@@ -18,7 +18,7 @@
     </label>
 </template>
 <script setup lang="ts">
-import RadioIcon from '@/assets/icons/Radio.svg'
+import { RadioIcon } from '@/shared/Icons'
 defineProps<{ disabled?: boolean; isActive: boolean }>()
 const emit = defineEmits(['change'])
 </script>

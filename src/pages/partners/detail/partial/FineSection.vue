@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import TooltipInfo from '@/components/Tooltips/TooltipInfo.vue'
 import UpdateBlock from '@/components/UpdateBlock.vue'
-import CalendarIcon from '@/assets/icons/Calendar.svg'
+import { CalendarIcon } from '@/shared/Icons'
 import { ref } from 'vue'
 const isExist = ref(false)
 </script>

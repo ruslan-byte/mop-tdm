@@ -14,7 +14,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import ClockIcon from '@/assets/icons/Clock.svg'
+import { ClockIcon } from '@/shared/Icons'
 import moment from 'moment'
 defineProps<{ date?: string | Date }>()
 </script>

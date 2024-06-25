@@ -500,10 +500,8 @@
     </div>
 </template>
 <script setup lang="ts">
-import CalendarIcon from '@/assets/icons/Calendar.svg'
+import { CalendarIcon, SuccessIcon, ErrorIcon } from '@/shared/Icons'
 import UpdateBlock from '@/components/UpdateBlock.vue'
-import SuccessIcon from '@/assets/icons/Success.svg'
-import ErrorIcon from '@/assets/icons/Error.svg'
 import { Formatter } from '@/helpers/Formatter'
 const formatter = new Formatter()
 defineProps<{ data: IBalanceSectionData }>()

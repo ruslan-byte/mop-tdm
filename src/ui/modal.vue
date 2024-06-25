@@ -29,7 +29,7 @@
     </Teleport>
 </template>
 <script setup lang="ts">
-import CrossIcon from '@/assets/icons/CrossLarge.svg'
+import { CrossIcon } from '@/shared/Icons'
 import { watch, ref } from 'vue'
 const props = defineProps<{ isShow: boolean }>()
 const emit = defineEmits(['close'])

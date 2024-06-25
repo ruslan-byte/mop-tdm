@@ -25,7 +25,7 @@
     </header>
 </template>
 <script setup lang="ts">
-import LogoIcon from '@/assets/icons/Logo.svg'
+import { LogoIcon } from '@/shared/Icons'
 import NotificationButton from '@/components/Header/NotificationButton.vue'
 import PersoneDropdown from '@/components/Header/PersoneDropdown.vue'
 import NavItem from '@/components/Header/NavItem.vue'

@@ -135,9 +135,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import ArrowIcon from '@/assets/icons/Arrow.svg'
-import CrossIcon from '@/assets/icons/Cross.svg'
-import ArrowSmallIcon from '@/assets/icons/ArrowSmall.svg'
+import { ArrowIcon, CrossIcon, ArrowSmallIcon } from '@/shared/Icons'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import vClickOutsideDirective from 'click-outside-vue3'
 import moment from 'moment'

@@ -78,7 +78,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import MedalIcon from '@/assets/icons/Medal.svg'
+import { MedalIcon } from '@/shared/Icons'
 import DoughnutChart, { IDoughnutData } from './DoughnutChart.vue'
 import { Formatter } from '@/helpers/Formatter'
 import { computed, ref } from 'vue'

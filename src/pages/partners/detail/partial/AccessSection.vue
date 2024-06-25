@@ -47,7 +47,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import WarningIcon from '@/assets/icons/Warning.svg'
+import { WarningIcon } from '@/shared/Icons'
 defineProps<{
     data?: {
         login: string
