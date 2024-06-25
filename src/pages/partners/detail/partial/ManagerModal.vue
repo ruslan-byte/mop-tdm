@@ -26,7 +26,7 @@
     </Modal>
 </template>
 <script setup lang="ts">
-import Modal from '@/ui/Modal.vue'
+import { Modal } from '@/shared/ui'
 import RadioButton from '@/components/Form/RadioButton.vue'
 import { ref } from 'vue'
 export interface IManagerItem {

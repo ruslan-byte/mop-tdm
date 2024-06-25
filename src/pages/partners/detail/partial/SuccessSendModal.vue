@@ -28,7 +28,7 @@
     </Modal>
 </template>
 <script setup lang="ts">
-import Modal from '@/ui/Modal.vue'
+import { Modal } from '@/shared/ui/'
 import { SuccessIcon, CrossLargeIcon } from '@/shared/Icons'
 const emit = defineEmits(['close'])
 </script>

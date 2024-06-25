@@ -1,6 +1,6 @@
-const plugin = require('tailwindcss/plugin')
+import plugin from 'tailwindcss/plugin'
 
-export default plugin(
+export const scrollbar = plugin(
     ({
         addComponents,
         theme

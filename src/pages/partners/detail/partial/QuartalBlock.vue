@@ -80,7 +80,7 @@
 <script setup lang="ts">
 import { MedalIcon } from '@/shared/Icons'
 import DoughnutChart, { IDoughnutData } from './DoughnutChart.vue'
-import { Formatter } from '@/helpers/Formatter'
+import { Formatter } from '@/shared/ui'
 import { computed, ref } from 'vue'
 import moment from 'moment'
 const formatter = new Formatter(false)

@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const target = ref<HTMLDivElement>()
-import { Formatter } from '@/helpers/Formatter'
+import { Formatter } from '@/shared/ui/'
 const formatter = new Formatter()
 defineExpose({ target })
 const props = defineProps<{ data?: ITooltipData; isShow: boolean }>()

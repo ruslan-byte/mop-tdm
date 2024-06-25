@@ -27,7 +27,6 @@ import vClickOutsideDirective from 'click-outside-vue3'
 const vClickOutside = vClickOutsideDirective.directive
 const isDetailShow = ref(false)
 function hideDetail() {
-    console.log(`'hide'`, 'hide')
     isDetailShow.value = false
 }
 function showDetail() {

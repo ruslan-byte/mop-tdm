@@ -1,6 +1,5 @@
-const plugin = require('tailwindcss/plugin')
-
-export default plugin(
+import plugin from 'tailwindcss/plugin'
+export const buttons = plugin(
     ({
         addComponents,
         theme

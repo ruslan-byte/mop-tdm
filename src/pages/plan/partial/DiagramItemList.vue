@@ -27,7 +27,7 @@
 </template>
 <script setup lang="ts">
 import type { IPlanChartItem } from './PieDiagramBlock.vue'
-import { Formatter } from '@/helpers/Formatter'
+import { Formatter } from '@/shared/ui'
 const formatter = new Formatter()
 const props = defineProps<{
     partners: IPlanChartItem[]

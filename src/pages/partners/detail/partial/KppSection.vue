@@ -29,7 +29,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { Formatter } from '@/helpers/Formatter'
+import { Formatter } from '@/shared/ui/'
 const formatter = new Formatter(false)
 defineProps<{ total: number; accountedPart: number }>()
 </script>

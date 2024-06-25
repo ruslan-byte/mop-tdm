@@ -502,7 +502,7 @@
 <script setup lang="ts">
 import { CalendarIcon, SuccessIcon, ErrorIcon } from '@/shared/Icons'
 import UpdateBlock from '@/components/UpdateBlock.vue'
-import { Formatter } from '@/helpers/Formatter'
+import { Formatter } from '@/shared/ui'
 const formatter = new Formatter()
 defineProps<{ data: IBalanceSectionData }>()
 interface IDetailTotalOverdue {

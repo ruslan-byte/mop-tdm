@@ -1,7 +1,9 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 const plugin = require('tailwindcss/plugin')
-import buttonsPlugin from './src/plugins/buttons'
-import scrollbarPlugin from './src/plugins/scrollbar'
+import {
+    buttons as buttonsPlugin,
+    scrollbar as scrollbarPlugin
+} from './src/shared/ui/plugins'
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],

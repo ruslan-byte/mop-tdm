@@ -64,7 +64,7 @@
 <script setup lang="ts">
 import { MedalIcon } from '@/shared/Icons'
 import SuperDoughnutChart, { ISuperDougnutData } from './SuperDoughnutChart.vue'
-import { Formatter } from '@/helpers/Formatter'
+import { Formatter } from '@/shared/ui'
 import moment from 'moment'
 const formatter = new Formatter(false)
 export interface ISuperBlockData {
