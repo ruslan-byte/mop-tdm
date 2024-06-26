@@ -4,7 +4,7 @@
             class="flex gap-5 justify-between border-b border-gray-pale pb-[1.1875rem] mb-4"
         >
             <h3>Выполнение плана продаж</h3>
-            <div>
+            <div class="flex flex-col items-end">
                 <p class="text-small text-main leading-4 mb-1">
                     Показать динамику выполнения плана за:
                 </p>
