@@ -8,7 +8,7 @@
                 <p class="text-small text-main leading-4 mb-1">
                     Показать динамику выполнения плана за:
                 </p>
-                <PlanDatePicker></PlanDatePicker>
+                <PlanDatePicker v-model="datePickerData"></PlanDatePicker>
             </div>
         </div>
         <div class="flex justify-between mb-4 items-center">
@@ -34,7 +34,7 @@ import QuartalBlock, { IQuartalBlockData } from './QuartalBlock.vue'
 import YearBlock, { IYearBlockData } from './YearBlock.vue'
 import SuperBlock, { ISuperBlockData } from './SuperBlock.vue'
 import KppSection from './KppSection.vue'
-import PlanDatePicker from '@/components/DatePickers/PlanDatePicker.vue'
+import { PlanDatePicker } from '@/entities/partner'
 const activeTab = ref('2022')
 const tabs: ITab[] = [
     { value: '2022', label: '2022' },
@@ -105,5 +105,6 @@ const superBlockData: ISuperBlockData = {
     factSum: 60102000,
     planSum: 30000000
 }
+const datePickerData = ref()
 </script>
 <style lang="scss"></style>
