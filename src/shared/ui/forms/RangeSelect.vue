@@ -71,7 +71,6 @@ import RangeSlider, { IRangeValue } from './RangeSlider.vue'
 import { computed, ref } from 'vue'
 import { CrossIcon } from '@/shared/Icons'
 import { vClickOutside } from '../clickOutside'
-import { Formatter } from '../Formatter'
 const props = defineProps<{
     min: number
     max: number
@@ -119,9 +118,6 @@ function hideDetail() {
 }
 function setLocalRangeValueFromProps() {
     localRangeValue.value = props.modelValue
-}
-interface InputNumberEvent extends Event {
-    target: HTMLInputElement
 }
 </script>
 <style lang="scss"></style>
