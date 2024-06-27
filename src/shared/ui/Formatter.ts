@@ -1,3 +1,4 @@
+import { computed, Ref } from 'vue'
 export class Formatter {
     protected isWithZero: boolean = true
     sum(field: string | number) {
@@ -47,6 +48,38 @@ export class Formatter {
         } else {
             return titles[2]
         }
+    }
+    createNewCounter(
+        count: Ref<number>,
+        options: { min: number; max: number }
+    ) {
+        interface InputNumberEvent extends Event {
+            target: HTMLInputElement
+            data: string | Object
+        }
+        return computed({
+            get: (): number => count.value,
+            set: (event: InputNumberEvent) => {
+                const forbiddenSymbols = ['-', '+', ',', '.', 'e']
+                if (forbiddenSymbols.find(item => item === event.data))
+                    event.target.value = '' + count.value
+                if (
+                    options &&
+                    options.max <= +event.target.value &&
+                    event.target.value != ''
+                ) {
+                    event.target.value = '' + options.max
+                }
+                if (
+                    options &&
+                    options.min >= +event.target.value &&
+                    event.target.value != ''
+                )
+                    event.target.value = '' + options.min
+                count.value =
+                    event.target.value !== '' ? +event.target.value : 0
+            }
+        })
     }
 
     constructor(isWithZero = true) {
