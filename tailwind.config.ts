@@ -2,7 +2,8 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 const plugin = require('tailwindcss/plugin')
 import {
     buttons as buttonsPlugin,
-    scrollbar as scrollbarPlugin
+    scrollbar as scrollbarPlugin,
+    forms
 } from './src/shared/ui/plugins'
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -207,6 +208,7 @@ export default {
             })
         }),
         buttonsPlugin,
-        scrollbarPlugin
+        scrollbarPlugin,
+        forms
     ]
 }

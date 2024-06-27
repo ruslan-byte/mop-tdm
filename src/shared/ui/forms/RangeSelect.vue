@@ -18,6 +18,19 @@
                 :min="min"
                 :max="max"
             ></RangeSlider>
+            <div class="flex gap-4">
+                <input
+                    type="number"
+                    class="g-input w-20"
+                    placeholder="От 100 ₽ "
+                    error-message="Неверное значение"
+                />
+                <input
+                    type="text"
+                    class="g-input w-20"
+                    placeholder="От 100 ₽ "
+                />
+            </div>
         </div>
     </div>
 </template>
