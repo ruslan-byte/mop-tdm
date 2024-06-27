@@ -12,6 +12,7 @@
             <HorizontalButtonSelect
                 :options="HorizontalButtonOptions"
                 v-model="activeDateId"
+                disabled
             ></HorizontalButtonSelect>
         </div>
     </div>

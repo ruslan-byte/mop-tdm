@@ -4,6 +4,7 @@
             <button
                 @click="showDetail"
                 class="g-inline-button g-inline-button--blue flex text-caption h-5 items-center gap-1 focus:outline-none"
+                :disabled="disabled"
             >
                 {{ activeButtonName }}
                 <ArrowIcon class="rotate-180"></ArrowIcon>
@@ -42,7 +43,11 @@ interface IOption {
     name: string
     id: number
 }
-const props = defineProps<{ options: IOption[]; modelValue?: number }>()
+const props = defineProps<{
+    options: IOption[]
+    modelValue?: number
+    disabled?: boolean
+}>()
 const emit = defineEmits({
     'update:modelValue': newVal => {
         if (typeof newVal == 'number') return true
