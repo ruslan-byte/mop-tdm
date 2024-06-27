@@ -12,7 +12,7 @@
         </div>
 
         <div
-            class="absolute top-full bg-blue-pale shadow p-4 rounded"
+            class="absolute top-full bg-blue-pale shadow p-4 rounded z-20"
             v-if="isDetailShow"
         >
             <p class="text-small leading-4 font-semibold mb-2">

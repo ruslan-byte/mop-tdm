@@ -9,20 +9,20 @@
             ></RangeSelect>
         </div>
         <div>
-            <HorizontalButtonSelect
-                :options="HorizontalButtonOptions"
+            <DateSelect
+                :options="DateSelectOptions"
                 v-model="activeDateId"
                 disabled
-            ></HorizontalButtonSelect>
+            ></DateSelect>
         </div>
     </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import HorizontalButtonSelect from './HorizontalButtonSelect.vue'
+import DateSelect from './DateSelect.vue'
 import { RangeSelect } from '@/shared/ui'
 const rangeSelectData = ref<{ from: number; to: number }>()
-const HorizontalButtonOptions = [
+const DateSelectOptions = [
     {
         id: 0,
         name: 'Июнь - май, 2024'

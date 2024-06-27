@@ -14,7 +14,7 @@
             ></ArrowIcon>
         </button>
         <div
-            class="bg-white absolute top-full translate-y-2 w-full px-4 py-6 rounded"
+            class="bg-white absolute top-full translate-y-2 w-full px-4 py-6 rounded z-20"
             v-if="isShowDetail"
         >
             <RangeSlider
