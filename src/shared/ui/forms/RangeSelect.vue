@@ -37,11 +37,6 @@
                     class="g-input w-[6.875rem]"
                     placeholder="До 100 000 ₽ "
                     :value="localRangeValue?.to"
-                    @input="
-                        event => {
-                            console.log(`event`, event)
-                        }
-                    "
                 />
             </div>
 
