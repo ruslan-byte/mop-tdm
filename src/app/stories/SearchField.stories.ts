@@ -22,5 +22,11 @@ export const Default: Story = {
         disabled: false,
         searchValue: '',
         isWhite: true
+    },
+    parameters: {
+        design: {
+            type: 'figma',
+            url: 'https://www.figma.com/design/LNX1Yb6Pw07GSG2ulI2xvI/TDM-%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-%D0%BA%D0%B0%D0%B1%D0%B8%D0%B5%D0%BD%D1%82?node-id=103-1392&t=09VZ6pVbgRvXW8Ny-4'
+        }
     }
 }
