@@ -20,6 +20,7 @@ import RadioIcon from './Radio.svg'
 import SearchIcon from './Search.svg'
 import SuccessIcon from './Success.svg'
 import WarningIcon from './Warning.svg'
+import DoubleArrowIcon from './DoubleArrow.svg'
 
 export {
     NotificationIcon,
@@ -43,5 +44,6 @@ export {
     RadioIcon,
     SearchIcon,
     SuccessIcon,
-    WarningIcon
+    WarningIcon,
+    DoubleArrowIcon
 }
