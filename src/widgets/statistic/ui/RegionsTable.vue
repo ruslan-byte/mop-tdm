@@ -38,7 +38,12 @@
                     'bg-green-pale': region.color == 'green'
                 }"
             >
-                {{ region.name }}
+                <router-link
+                    to="/sell-in/regions/1"
+                    class="hover:text-blue active:text-blue-pressed"
+                >
+                    {{ region.name }}
+                </router-link>
             </td>
 
             <td

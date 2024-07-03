@@ -46,9 +46,9 @@ import NavLink from './NavLink.vue'
 import { NotificationIcon } from '@/shared/Icons'
 import NavDropdown from './NavDropdown.vue'
 const sellInLinks = [
-    { link: '/partners', name: 'Партнеры' },
-    { link: '/regions', name: 'Регионы' },
-    { link: '/city', name: 'Города' }
+    { link: '/sell-in', name: 'Партнеры' },
+    { link: '/sell-in/regions', name: 'Регионы' },
+    { link: '/sell-in/city', name: 'Города' }
 ]
 const sellOutLinks = [
     { link: '/partners', name: 'Партнеры' },

@@ -3,7 +3,7 @@
         <BreadCrumbs :links="BreadCrumbsLinks" class="mb-8"></BreadCrumbs>
         <h1 class="mb-8">Партнеры</h1>
         <div class="flex gap-6 mb-6">
-            <SearchField class="w-[38rem]"></SearchField>
+            <SearchFieldWithCross class="w-[38rem]"></SearchFieldWithCross>
             <Dropdown
                 :options="deltaOptions"
                 v-model="activeDeltaItemValue"
@@ -27,7 +27,7 @@
             <tr v-for="item of 10">
                 <td class="text-blue-dark pl-8">
                     <router-link
-                        to="/partners/0"
+                        to="/sell-in/0"
                         class="hover:text-blue active:text-blue-pressed"
                     >
                         Энергосберегающие технологии
@@ -61,7 +61,7 @@
 </template>
 <script setup lang="ts">
 import { BreadCrumbs, IBreadCrumbLink } from '@/widgets/layout'
-import SearchField from '@/components/Form/SearchField.vue'
+import { SearchFieldWithCross } from '@/shared/ui'
 import Dropdown, { IDropdownOption } from '@/components/Dropdowns/Dropdown.vue'
 import { ref } from 'vue'
 const BreadCrumbsLinks: IBreadCrumbLink[] = [

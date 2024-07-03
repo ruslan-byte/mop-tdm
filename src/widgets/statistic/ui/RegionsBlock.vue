@@ -93,32 +93,32 @@ const PaginationLinks = [
     {
         id: 42,
         name: '1',
-        link: '/regions?page=1'
+        link: '/sell-in/regions?page=1'
     },
     {
         id: 12,
         name: '2',
-        link: '/regions?page=2'
+        link: '/sell-in/regions?page=2'
     },
     {
         id: 323,
         name: '3',
-        link: '/regions?page=3'
+        link: '/sell-in/regions?page=3'
     },
     {
         id: 23234,
         name: '...',
-        link: '/regions?page=4'
+        link: '/sell-in/regions?page=4'
     },
     {
         id: 52323,
         name: '7',
-        link: '/regions?page=5'
+        link: '/sell-in/regions?page=5'
     },
     {
         id: 623232,
         name: '8',
-        link: '/regions?page=6'
+        link: '/sell-in/regions?page=6'
     }
 ]
 const regionList: IRegion[] = [

@@ -83,7 +83,7 @@ const breadCrumbsLink: IBreadCrumbLink[] = [
     {
         id: '0',
         label: 'Sell In',
-        to: '/partners'
+        to: '/sell-in'
     },
     {
         id: '0',
