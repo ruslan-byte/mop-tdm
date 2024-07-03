@@ -50,16 +50,10 @@ function updateModelValue(newValue: IMultiRangeData) {
         @apply hidden;
     }
     .multi-range-slider {
-        @apply border-none shadow-none py-2.5 pt-[0.5625rem] px-0;
+        @apply border-none shadow-none py-2.5 pt-[0.5625rem] pl-2 pr-[0.75rem];
     }
     .thumb::before {
         @apply bg-orange shadow-none border-none -translate-y-[1.5px];
-    }
-    .thumb-left {
-        @apply translate-x-2;
-    }
-    .thumb-right {
-        @apply -translate-x-[0.75rem];
     }
     .bar-inner,
     .bar-inner-left,

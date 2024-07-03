@@ -5,9 +5,10 @@
             @click="showDetail"
         >
             <input
-                placeholder="Кол-во проданных едениц"
+                :placeholder="placeholder"
                 class="placeholder:text-main text-small h-full w-full pl-4 pr-9 leading-4 bg-white rounded pointer-events-none group-hover:text-blue group-hover:placeholder:text-blue"
                 disabled
+                :value="previewLabel"
             />
             <ArrowIcon
                 class="absolute top-1/2 right-4 stroke-blue rotate-180 -translate-y-1/2 stroke-0.5 stroke-round w-3.5 pointer-events-none"
@@ -27,16 +28,18 @@
                 <input
                     type="number"
                     class="g-input w-[6.875rem]"
-                    placeholder="От 100 ₽"
+                    :placeholder="`От ${min}${unitName}`"
                     error-message="Неверное значение"
                     :value="localRangeValue?.from"
+                    @input="inputFrom"
                 />
                 <div class="h-px bg-gray-2 w-2"></div>
                 <input
                     type="text"
                     class="g-input w-[6.875rem]"
-                    placeholder="До 100 000 ₽ "
+                    :placeholder="`До ${max}${unitName}`"
                     :value="localRangeValue?.to"
+                    @input="inputTo"
                 />
             </div>
 
@@ -73,6 +76,8 @@ const props = defineProps<{
         from: number
         to: number
     }
+    placeholder?: string
+    unitName: string
 }>()
 const localRangeValue = ref<IRangeValue>()
 const emit = defineEmits({
@@ -113,6 +118,50 @@ function hideDetail() {
 }
 function setLocalRangeValueFromProps() {
     localRangeValue.value = props.modelValue
+}
+
+const previewLabel = computed(() => {
+    return props.modelValue
+        ? `От ${props.modelValue?.from}${props.unitName} до ${props.modelValue?.to}${props.unitName}`
+        : ''
+})
+interface IEventInput extends Event {
+    target: HTMLInputElement | null
+    data?: string
+}
+function inputFrom(event: IEventInput) {
+    if (!event.target) return
+    if (localRangeValue.value) {
+        const forbiddenSymbols = ['-', '+', ',', '.', 'e']
+
+        if (event.data && forbiddenSymbols.includes(event.data))
+            event.target.value = '' + localRangeValue.value.from
+        if (+event.target.value >= localRangeValue.value.to)
+            event.target.value = '' + localRangeValue.value.to
+
+        localRangeValue.value.from = +event.target.value
+    } else {
+        localRangeValue.value = { from: props.min, to: props.max }
+        inputFrom(event)
+    }
+}
+function inputTo(event: IEventInput) {
+    if (!event.target) return
+    if (localRangeValue.value) {
+        const forbiddenSymbols = ['-', '+', ',', '.', 'e']
+
+        if (event.data && forbiddenSymbols.includes(event.data))
+            event.target.value = '' + localRangeValue.value.to
+        if (+event.target.value <= localRangeValue.value.from)
+            event.target.value = '' + localRangeValue.value.from
+        if (+event.target.value >= props.max)
+            event.target.value = '' + props.max
+
+        localRangeValue.value.to = +event.target.value
+    } else {
+        localRangeValue.value = { from: props.min, to: props.max }
+        inputFrom(event)
+    }
 }
 </script>
 <style lang="scss"></style>

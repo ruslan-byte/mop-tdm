@@ -1,21 +1,57 @@
 <template>
     <div>
-        <h1>Регионы</h1>
-        <div class="flex">
+        <h1 class="mb-8">Регионы</h1>
+        <div class="flex gap-4 mb-4">
             <RangeSelect
                 v-model="rangeSelectData"
                 :min="1"
                 :max="100"
+                placeholder="Сумма отгрузок"
+                unit-name=" ₽"
+            ></RangeSelect>
+            <RangeSelect
+                v-model="rangeSelectData"
+                :min="1"
+                :max="100"
+                placeholder="Сумма отгрузок (динамика в %)"
+                unit-name=" %"
+            ></RangeSelect>
+            <RangeSelect
+                v-model="rangeSelectData"
+                :min="1"
+                :max="100"
+                placeholder="Кол-во партнеров"
+                unit-name=" ₽"
+            ></RangeSelect>
+            <RangeSelect
+                v-model="rangeSelectData"
+                :min="1"
+                :max="100"
+                placeholder="Кол-во партнеров (динамика в %)"
+                unit-name=" %"
             ></RangeSelect>
         </div>
-        <div class="mb-10">
+        <div class="mb-8 flex items-center gap-2">
+            <p class="text-blue-dark">Сравнивать динамику за:</p>
             <DateSelect
                 :options="DateSelectOptions"
                 v-model="activeDateId"
-                disabled
             ></DateSelect>
         </div>
-
+        <div>
+            <table>
+                <thead class="h-[3.625rem]">
+                    <th class="text-caption">Название региона</th>
+                    <th class="text-caption">Кол-во партнеров</th>
+                    <th class="text-caption">Сумма отгрузок</th>
+                </thead>
+                <tr>
+                    <td>Республика Адыгея</td>
+                    <td>134 -13,78%</td>
+                    <td>260 580,26 ₽ -134%</td>
+                </tr>
+            </table>
+        </div>
         <Pagination
             v-model="activePageId"
             :links="PaginationLinks"
