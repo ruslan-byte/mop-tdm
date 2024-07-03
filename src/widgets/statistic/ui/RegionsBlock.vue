@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1 class="mb-8">Регионы</h1>
-        <div class="flex gap-4 mb-4">
+        <h1 class="mb-8 leading-9">Регионы</h1>
+        <div class="flex gap-6 mb-4">
             <RangeSelect
                 v-model="rangeShipmentTotalAmount"
                 :min="1"
@@ -31,14 +31,14 @@
                 unit-name=" %"
             ></RangeSelect>
         </div>
-        <div class="mb-8 flex items-center gap-2">
+        <div class="mb-6 flex items-center gap-2">
             <p class="text-blue-dark">Сравнивать динамику за:</p>
             <DateSelect
                 :options="DateSelectOptions"
                 v-model="activeDateId"
             ></DateSelect>
         </div>
-        <RegionsTable class="w-full mb-10" :regions="regionList"></RegionsTable>
+        <RegionsTable class="w-full mb-8" :regions="regionList"></RegionsTable>
         <Pagination
             class="mx-auto w-fit"
             v-model="activePageId"
@@ -107,28 +107,18 @@ const PaginationLinks = [
     },
     {
         id: 23234,
-        name: '4',
+        name: '...',
         link: '/regions?page=4'
     },
     {
         id: 52323,
-        name: '5',
+        name: '7',
         link: '/regions?page=5'
     },
     {
         id: 623232,
-        name: '6',
+        name: '8',
         link: '/regions?page=6'
-    },
-    {
-        id: 73242,
-        name: '9',
-        link: '/regions?page=8'
-    },
-    {
-        id: 23238,
-        name: '10',
-        link: '/regions?page=8'
     }
 ]
 const regionList: IRegion[] = [

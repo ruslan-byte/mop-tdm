@@ -60,7 +60,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import BreadCrumbs, { IBreadCrumbLink } from '@/components/BreadCrumbs.vue'
+import { BreadCrumbs, IBreadCrumbLink } from '@/widgets/layout'
 import SearchField from '@/components/Form/SearchField.vue'
 import Dropdown, { IDropdownOption } from '@/components/Dropdowns/Dropdown.vue'
 import { ref } from 'vue'

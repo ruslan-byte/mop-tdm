@@ -1,6 +1,6 @@
 <template>
     <router-link
-        class="text-blue-dark leading-6 inline-block tracking-0.2 hover:text-blue active:text-blue-dark"
+        class="text-blue-dark leading-6 inline-block hover:text-blue active:text-blue-dark"
         :class="{ 'pointer-events-none text-gray-2': disabled }"
         :to="to"
         ><slot></slot>

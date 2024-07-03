@@ -61,7 +61,7 @@
 </template>
 <script setup lang="ts">
 import PlanSection from './partial/PlanSection.vue'
-import BreadCrumbs, { IBreadCrumbLink } from '@/components/BreadCrumbs.vue'
+import { BreadCrumbs, IBreadCrumbLink } from '@/widgets/layout'
 import BonusSection from './partial/BonusSection.vue'
 import FineSection from './partial/FineSection.vue'
 import BalanceSection, {

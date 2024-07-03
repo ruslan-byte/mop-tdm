@@ -1,20 +1,22 @@
 <template>
     <table class="drop-shadow-table">
         <thead class="h-[3.625rem]">
-            <th class="text-caption w-[29.4375rem]">Название региона</th>
-            <th class="text-caption w-[13.75rem]">
+            <th class="text-caption w-[29.4375rem] pl-8">Название региона</th>
+            <th class="w-[13.75rem]">
                 <div class="flex gap-2">
-                    <label class="cursor-pointer flex items-center gap-2">
+                    <label
+                        class="cursor-pointer flex items-center gap-2 text-caption"
+                    >
                         Кол-во партнеров
                         <SortButton v-model="countPartnersSort"></SortButton>
                     </label>
                     <label class="cursor-pointer flex items-center gap-2">
-                        <p>%</p>
+                        <p class="text-">%</p>
                         <SortButton v-model="percentPartnersSort"></SortButton>
                     </label>
                 </div>
             </th>
-            <th class="text-caption w-[29.3125rem]">
+            <th class="text-caption w-[29.3125rem] pl-8">
                 <div class="flex gap-2">
                     <label class="cursor-pointer flex items-center gap-2">
                         Сумма отгрузок
@@ -29,7 +31,7 @@
         </thead>
         <tr v-for="region of regions">
             <td
-                class="text-blue-dark bg-pink-pale"
+                class="text-blue-dark bg-pink-pale pl-8"
                 :class="{
                     'bg-pink-pale': region.color == 'red',
                     'bg-yellow-pale': region.color == 'yellow',
@@ -75,6 +77,7 @@
                 </div>
             </td>
             <td
+                class="pl-8"
                 :class="{
                     'bg-pink-pale': region.color == 'red',
                     'bg-yellow-pale': region.color == 'yellow',
