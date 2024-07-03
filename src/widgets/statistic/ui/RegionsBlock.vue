@@ -3,28 +3,28 @@
         <h1 class="mb-8">Регионы</h1>
         <div class="flex gap-4 mb-4">
             <RangeSelect
-                v-model="rangeSelectData"
+                v-model="rangeShipmentTotalAmount"
                 :min="1"
                 :max="100"
                 placeholder="Сумма отгрузок"
                 unit-name=" ₽"
             ></RangeSelect>
             <RangeSelect
-                v-model="rangeSelectData"
+                v-model="rangeShipmentTotalPercent"
                 :min="1"
                 :max="100"
                 placeholder="Сумма отгрузок (динамика в %)"
                 unit-name=" %"
             ></RangeSelect>
             <RangeSelect
-                v-model="rangeSelectData"
+                v-model="rangePartnerCount"
                 :min="1"
                 :max="100"
                 placeholder="Кол-во партнеров"
-                unit-name=" ₽"
+                unit-name=""
             ></RangeSelect>
             <RangeSelect
-                v-model="rangeSelectData"
+                v-model="rangePartnerPercent"
                 :min="1"
                 :max="100"
                 placeholder="Кол-во партнеров (динамика в %)"
@@ -38,21 +38,9 @@
                 v-model="activeDateId"
             ></DateSelect>
         </div>
-        <div>
-            <table>
-                <thead class="h-[3.625rem]">
-                    <th class="text-caption">Название региона</th>
-                    <th class="text-caption">Кол-во партнеров</th>
-                    <th class="text-caption">Сумма отгрузок</th>
-                </thead>
-                <tr>
-                    <td>Республика Адыгея</td>
-                    <td>134 -13,78%</td>
-                    <td>260 580,26 ₽ -134%</td>
-                </tr>
-            </table>
-        </div>
+        <RegionsTable class="w-full mb-10" :regions="regionList"></RegionsTable>
         <Pagination
+            class="mx-auto w-fit"
             v-model="activePageId"
             :links="PaginationLinks"
         ></Pagination>
@@ -63,7 +51,11 @@ import { ref } from 'vue'
 import DateSelect from './DateSelect.vue'
 import { RangeSelect } from '@/shared/ui'
 import { Pagination } from '@/shared/ui'
-const rangeSelectData = ref<{ from: number; to: number }>()
+import RegionsTable, { IRegion } from './RegionsTable.vue'
+const rangeShipmentTotalAmount = ref<{ from: number; to: number }>()
+const rangeShipmentTotalPercent = ref<{ from: number; to: number }>()
+const rangePartnerCount = ref<{ from: number; to: number }>()
+const rangePartnerPercent = ref<{ from: number; to: number }>()
 const DateSelectOptions = [
     {
         id: 0,
@@ -137,6 +129,168 @@ const PaginationLinks = [
         id: 23238,
         name: '10',
         link: '/regions?page=8'
+    }
+]
+const regionList: IRegion[] = [
+    {
+        name: 'Республика Адыгея',
+        partnerCount: 134,
+        partnerPercent: -13.78,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: -134,
+        color: 'red'
+    },
+    {
+        name: 'Республика Башкортостан',
+        partnerCount: 134,
+        partnerPercent: -13.78,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: -134,
+        color: 'red'
+    },
+    {
+        name: 'Республика Бурятия',
+        partnerCount: 134,
+        partnerPercent: 0,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 0,
+        color: 'yellow'
+    },
+    {
+        name: 'Республика Алтай',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Дагестан',
+        partnerCount: 134,
+        partnerPercent: 1,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 0.87,
+        color: 'yellow'
+    },
+    {
+        name: 'Республика Ингушетия',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Кабардино-Балкарская Республика',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Калмыкия',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Карачаево-Черкессия',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Карелия',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Коми',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Марий Эл',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Мордовия',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Саха (Якутия)',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Северная Осетия-Алания',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Татарстан',
+        partnerCount: 134,
+        partnerPercent: 1,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 0.87,
+        color: 'yellow'
+    },
+    {
+        name: 'Республика Тыва',
+        partnerCount: 134,
+        partnerPercent: 1,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 0.87,
+        color: 'yellow'
+    },
+    {
+        name: 'Удмуртская Республика',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Республика Хакасия',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
+    },
+    {
+        name: 'Чеченская республика',
+        partnerCount: 134,
+        partnerPercent: 13.67,
+        shipmentsAmount: 260580.26,
+        shipmentsPercent: 13.67,
+        color: 'green'
     }
 ]
 </script>

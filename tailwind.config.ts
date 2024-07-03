@@ -37,7 +37,9 @@ export default {
                 DEFAULT: '4px 4px 20px 0px #E6E8EE',
                 tooltip: '1px 1px 5px 0px #C6C5C5'
             },
+
             dropShadow: {
+                table: '4px 4px 20px #E6E8EEB2',
                 tooltip: '1px 1px 5px #C6C5C5'
             },
             maxWidth: {

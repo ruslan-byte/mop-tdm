@@ -21,6 +21,8 @@ import SearchIcon from './Search.svg'
 import SuccessIcon from './Success.svg'
 import WarningIcon from './Warning.svg'
 import DoubleArrowIcon from './DoubleArrow.svg'
+import SortIcon from './Sort.svg?skipsvgo'
+import ArrowWithStickIcon from './ArrowWithStick.svg'
 
 export {
     NotificationIcon,
@@ -45,5 +47,7 @@ export {
     SearchIcon,
     SuccessIcon,
     WarningIcon,
-    DoubleArrowIcon
+    DoubleArrowIcon,
+    SortIcon,
+    ArrowWithStickIcon
 }

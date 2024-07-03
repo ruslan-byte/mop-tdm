@@ -1,0 +1,135 @@
+<template>
+    <table class="drop-shadow-table">
+        <thead class="h-[3.625rem]">
+            <th class="text-caption w-[29.4375rem]">Название региона</th>
+            <th class="text-caption w-[13.75rem]">
+                <div class="flex gap-2">
+                    <label class="cursor-pointer flex items-center gap-2">
+                        Кол-во партнеров
+                        <SortButton v-model="countPartnersSort"></SortButton>
+                    </label>
+                    <label class="cursor-pointer flex items-center gap-2">
+                        <p>%</p>
+                        <SortButton v-model="percentPartnersSort"></SortButton>
+                    </label>
+                </div>
+            </th>
+            <th class="text-caption w-[29.3125rem]">
+                <div class="flex gap-2">
+                    <label class="cursor-pointer flex items-center gap-2">
+                        Сумма отгрузок
+                        <SortButton v-model="totalShipmentsSort"></SortButton>
+                    </label>
+                    <label class="cursor-pointer flex items-center gap-2">
+                        <p>%</p>
+                        <SortButton v-model="percentShipmentsSort"></SortButton>
+                    </label>
+                </div>
+            </th>
+        </thead>
+        <tr v-for="region of regions">
+            <td
+                class="text-blue-dark bg-pink-pale"
+                :class="{
+                    'bg-pink-pale': region.color == 'red',
+                    'bg-yellow-pale': region.color == 'yellow',
+                    'bg-green-pale': region.color == 'green'
+                }"
+            >
+                {{ region.name }}
+            </td>
+
+            <td
+                :class="{
+                    'bg-pink-pale': region.color == 'red',
+                    'bg-yellow-pale': region.color == 'yellow',
+                    'bg-green-pale': region.color == 'green'
+                }"
+            >
+                <div class="flex gap-2">
+                    <p class="min-w-[5.625rem] text-main">
+                        {{ formatter.count(region.partnerCount) }}
+                    </p>
+                    <div
+                        class="min-w-[4.375rem] text-caption flex items-center leading-5 h-5 gap-0.5"
+                    >
+                        <p
+                            :class="{
+                                'text-red': region.partnerPercent < 0,
+                                'text-gray': region.partnerPercent == 0,
+                                'text-green': region.partnerPercent > 0
+                            }"
+                        >
+                            {{ formatter.getSignOfSum(region.partnerPercent)
+                            }}{{ formatter.percent(region.partnerPercent) }}%
+                        </p>
+                        <ArrowWithStickIcon
+                            :class="{
+                                'fill-red': region.partnerPercent < 0,
+                                hidden: region.partnerPercent == 0,
+                                'fill-green rotate-180':
+                                    region.partnerPercent > 0
+                            }"
+                        ></ArrowWithStickIcon>
+                    </div>
+                </div>
+            </td>
+            <td
+                :class="{
+                    'bg-pink-pale': region.color == 'red',
+                    'bg-yellow-pale': region.color == 'yellow',
+                    'bg-green-pale': region.color == 'green'
+                }"
+            >
+                <div class="flex gap-2">
+                    <p class="min-w-[5.625rem] text-main">
+                        {{ formatter.sum(region.shipmentsAmount) }} ₽
+                    </p>
+                    <div
+                        class="min-w-[4.375rem] text-caption flex items-center leading-5 h-5 gap-0.5"
+                    >
+                        <p
+                            :class="{
+                                'text-red': region.shipmentsPercent < 0,
+                                'text-gray': region.shipmentsPercent == 0,
+                                'text-green': region.shipmentsPercent > 0
+                            }"
+                        >
+                            {{ formatter.getSignOfSum(region.shipmentsPercent)
+                            }}{{ formatter.percent(region.shipmentsPercent) }}%
+                        </p>
+                        <ArrowWithStickIcon
+                            :class="{
+                                'fill-red': region.shipmentsPercent < 0,
+                                hidden: region.shipmentsPercent == 0,
+                                'fill-green rotate-180':
+                                    region.shipmentsPercent > 0
+                            }"
+                        ></ArrowWithStickIcon>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</template>
+<script setup lang="ts">
+import { SortButton } from '@/shared/ui'
+import { ref } from 'vue'
+import { Formatter } from '@/shared/ui'
+import { ArrowWithStickIcon } from '@/shared/Icons'
+const formatter = new Formatter()
+export interface IRegion {
+    name: string
+    partnerCount: number
+    partnerPercent: number
+    shipmentsAmount: number
+    shipmentsPercent: number
+    color: 'red' | 'yellow' | 'green'
+}
+const props = defineProps<{ regions: IRegion[] }>()
+const countPartnersSort = ref<'ASC' | 'DESC' | ''>('')
+const percentPartnersSort = ref<'ASC' | 'DESC' | ''>('')
+const totalShipmentsSort = ref<'ASC' | 'DESC' | ''>('')
+const percentShipmentsSort = ref<'ASC' | 'DESC' | ''>('')
+</script>
+<style lang="scss"></style>

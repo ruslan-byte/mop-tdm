@@ -11,6 +11,9 @@ export class Formatter {
     percent(field: string | number) {
         return (+field).toLocaleString('RU-ru')
     }
+    count(field: number) {
+        return field.toLocaleString('RU-ru')
+    }
     getSignOfSum(field: number): string {
         if (field > 0) return '+'
         return ''

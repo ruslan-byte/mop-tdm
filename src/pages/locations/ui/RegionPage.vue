@@ -1,5 +1,5 @@
 <template>
-    <div class="g-container">
+    <div class="g-container pb-20">
         <RegionsBlock></RegionsBlock>
     </div>
 </template>

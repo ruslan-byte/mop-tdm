@@ -10,3 +10,5 @@ import RangeSelect from './forms/RangeSelect.vue'
 export { RangeSelect }
 import Pagination from './tables/Pagination.vue'
 export { Pagination }
+import SortButton from './tables/SortButton.vue'
+export { SortButton }
