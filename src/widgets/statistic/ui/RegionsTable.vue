@@ -31,7 +31,7 @@
         </thead>
         <tr v-for="region of regions">
             <td
-                class="text-blue-dark bg-pink-pale pl-8"
+                class="text-blue-dark pl-8"
                 :class="{
                     'bg-pink-pale': region.color == 'red',
                     'bg-yellow-pale': region.color == 'yellow',

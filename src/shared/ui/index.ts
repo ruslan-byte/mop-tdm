@@ -16,3 +16,5 @@ import SortButton from './tables/SortButton.vue'
 export { SortButton }
 import SearchField from './forms/SearchField.vue'
 export { SearchField }
+import LargeDatePickerBody from './datepickers/LargeDatePickerBody.vue'
+export { LargeDatePickerBody }

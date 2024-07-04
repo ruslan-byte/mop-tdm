@@ -1,9 +1,16 @@
 <template>
     <div class="g-container">
-        <SearchField class="w-[292px]"></SearchField>
+        <div class="flex justify-between">
+            <ShipmentDatePicker v-model="date"></ShipmentDatePicker>
+            <div>
+                {{ date }}
+            </div>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
-import { SearchField } from '@/shared/ui'
+import { ShipmentDatePicker } from '@/widgets/shipments'
+import { ref } from 'vue'
+const date = ref()
 </script>
 <style lang="scss"></style>

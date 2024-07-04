@@ -10,7 +10,8 @@ const meta = {
         setup() {
             return { args }
         },
-        template: '<ShipmentDatePicker />'
+        template:
+            '<div class="flex justify-center items-center">  <ShipmentDatePicker /></div>'
     })
 } satisfies Meta<typeof ShipmentDatePicker>
 
