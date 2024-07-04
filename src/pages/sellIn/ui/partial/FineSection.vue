@@ -36,8 +36,8 @@
             to="/"
             class="g-inline-button g-inline-button--blue-fill inline-flex gap-2"
         >
-            <CalendarIcon class="inline-block"></CalendarIcon> График
-            платежей</router-link
+            <CalendarIcon class="inline-block w-5 h-[1.125rem]"></CalendarIcon>
+            График платежей</router-link
         >
     </div>
 </template>

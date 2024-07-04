@@ -9,7 +9,7 @@
                     to="/"
                     class="g-inline-button g-inline-button--blue-fill flex gap-2 text-very-small pr-2.5"
                 >
-                    <CalendarIcon></CalendarIcon>
+                    <CalendarIcon class="w-5 h-[1.125rem]"></CalendarIcon>
                     Перейти в график платежей
                 </router-link>
                 <UpdateBlock></UpdateBlock>
