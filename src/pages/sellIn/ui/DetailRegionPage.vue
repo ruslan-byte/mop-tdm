@@ -1,16 +1,11 @@
 <template>
     <div class="g-container">
         <div class="flex justify-between">
-            <ShipmentDatePicker v-model="date"></ShipmentDatePicker>
-            <div>
-                {{ date }}
-            </div>
+            <Checkbox></Checkbox>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { ShipmentDatePicker } from '@/widgets/shipments'
-import { ref } from 'vue'
-const date = ref()
+import { Checkbox } from '@/shared/ui'
 </script>
 <style lang="scss"></style>

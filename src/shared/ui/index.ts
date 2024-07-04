@@ -18,3 +18,5 @@ import SearchField from './forms/SearchField.vue'
 export { SearchField }
 import LargeDatePickerBody from './datepickers/LargeDatePickerBody.vue'
 export { LargeDatePickerBody }
+import Checkbox from './forms/Checkbox.vue'
+export { Checkbox }

@@ -23,6 +23,7 @@ import WarningIcon from './Warning.svg'
 import DoubleArrowIcon from './DoubleArrow.svg'
 import SortIcon from './Sort.svg?skipsvgo'
 import ArrowWithStickIcon from './ArrowWithStick.svg'
+import CheckIcon from './Check.svg'
 
 export {
     NotificationIcon,
@@ -49,5 +50,6 @@ export {
     WarningIcon,
     DoubleArrowIcon,
     SortIcon,
-    ArrowWithStickIcon
+    ArrowWithStickIcon,
+    CheckIcon
 }
