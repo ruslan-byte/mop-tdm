@@ -27,7 +27,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-const isActive = ref(false)
+const isActive = defineModel()
 import { CheckIcon } from '@/shared/Icons'
 const props = defineProps<{ disabled?: boolean }>()
 </script>
