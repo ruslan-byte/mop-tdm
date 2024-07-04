@@ -1,18 +1,23 @@
 <template>
-    <div class="relative category-dropdown">
-        <label class="relative">
+    <div class="relative category-dropdown" v-click-outside="hideDetail">
+        <button
+            class="relative inline-block pointer-events-auto group"
+            @click="showDetail"
+        >
             <input
                 type="text"
-                class="h-10 rounded border border-gray-light placeholder:text-caption placeholder:text-main px-4 hover:border-blue-hover bg-white cursor-pointer"
+                class="h-10 rounded border border-gray-light placeholder:text-caption placeholder:text-main px-4 group-hover:border-blue-hover bg-white cursor-pointer pointer-events-none"
                 placeholder="Категория"
                 disabled
+                @click="showDetail"
             />
             <ArrowIcon
                 class="stroke-gray top-1/2 right-4 absolute -translate-y-1/2 rotate-180 pointer-events-none"
             ></ArrowIcon>
-        </label>
+        </button>
         <div
             class="absolute top-full translate-y-2.5 bg-white w-[31.4375rem] py-8 px-6 rounded shadow"
+            v-if="isDetailShow"
         >
             <p class="font-semibold text-main mb-4">Выберите категории</p>
             <SearchField
@@ -20,13 +25,14 @@
                 class="w-[22.3125rem] mb-4"
                 v-model="searchText"
             ></SearchField>
-            <div>
+            <div class="max-h-[28.4375rem] overflow-auto g-scrollbar mb-8">
                 <Tree
-                    :nodes="options"
+                    :nodes="nodeOptionsList"
                     :search-text="searchText"
                     :use-checkbox="true"
                     :useIcon="true"
                     rowHoverBackground="white"
+                    :gap="8"
                 >
                     <template #checkbox="{ checked, node }">
                         <Checkbox
@@ -34,8 +40,9 @@
                             is-orange
                             :model-value="checked"
                             @update:model-value="
-                                newVal =>
+                                newVal => {
                                     toggleCheckboxWithAllChildren(node, newVal)
+                                }
                             "
                         >
                         </Checkbox>
@@ -48,6 +55,21 @@
                     </template>
                 </Tree>
             </div>
+            <div class="flex gap-6 items-center">
+                <button
+                    class="g-button g-button--linear-blue"
+                    @click="applyCategoryes"
+                >
+                    Применить
+                </button>
+                <button
+                    class="g-inline-button g-inline-button--gray-black flex items-center gap-1"
+                    @click="resetCategoryes"
+                >
+                    Сбросить
+                    <CrossIcon></CrossIcon>
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -57,20 +79,26 @@ import { ArrowIcon } from '@/shared/Icons'
 import { SearchField } from '@/shared/ui'
 import Tree from 'vue3-tree'
 import 'vue3-tree/dist/style.css'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { Checkbox } from '@/shared/ui'
+import { CrossIcon } from '@/shared/Icons'
+import { vClickOutside } from '@/shared/ui'
+
 interface INodeElement {
     checked: boolean
-    expanded: boolean
+    expanded?: boolean
     id: number
-    indeterminate: boolean
+    indeterminate?: boolean
     label: string
     nodes: INodeElement[] | null
 }
-const props = defineProps<{ options: ICategoryFilterOption[] }>()
 
+const props = defineProps<{
+    options: ICategoryFilterOption[]
+    modelValue: number[]
+}>()
+const emit = defineEmits(['update:modelValue'])
 const searchText = ref('')
-const options = ref(props.options)
 
 function toggleCheckboxWithAllChildren(node: INodeElement, isChecked: boolean) {
     node.checked = isChecked
@@ -79,6 +107,73 @@ function toggleCheckboxWithAllChildren(node: INodeElement, isChecked: boolean) {
             toggleCheckboxWithAllChildren(node, isChecked)
         })
 }
+
+const nodeOptionsList = ref<INodeElement[]>([])
+
+function getNodeList(
+    options: ICategoryFilterOption[],
+    isParentChecked?: boolean
+): INodeElement[] {
+    return options.map(option => {
+        const isChecked =
+            props.modelValue.includes(option.id) || (isParentChecked ?? false)
+        const ChildrenNodeList = option.nodes
+            ? getNodeList(option.nodes, isChecked)
+            : null
+        return {
+            checked: isChecked,
+            id: option.id,
+            expanded: isCheckedElementExist(ChildrenNodeList),
+            label: option.label,
+            nodes: ChildrenNodeList
+        }
+    })
+}
+
+function initNodeList() {
+    nodeOptionsList.value = getNodeList(props.options)
+}
+function applyCategoryes() {
+    emit('update:modelValue', getCheckedId(nodeOptionsList.value))
+    hideDetail()
+}
+function resetCategoryes() {
+    emit('update:modelValue', [])
+    hideDetail()
+}
+
+function getCheckedId(nodeList: INodeElement[]) {
+    const res: number[] = []
+    nodeList.forEach(nodeItem => {
+        if (nodeItem.checked) res.push(nodeItem.id)
+        else if (nodeItem.nodes) res.push(...getCheckedId(nodeItem.nodes))
+    })
+    return res
+}
+
+function isCheckedElementExist(nodeList: INodeElement[] | null): boolean {
+    if (!nodeList) return false
+
+    const isExistElementChecked: boolean =
+        nodeList.find(node => node.checked)?.checked ?? false
+
+    if (isExistElementChecked) return true
+
+    return nodeList.reduce((res: boolean, node: INodeElement) => {
+        return res || isCheckedElementExist(node.nodes)
+    }, false)
+}
+const isDetailShow = ref(false)
+function showDetail() {
+    initNodeList()
+    isDetailShow.value = true
+}
+function hideDetail() {
+    isDetailShow.value = false
+}
+onMounted(() => {
+    initNodeList()
+})
 </script>
 <style lang="scss">
 .category-dropdown {
@@ -92,7 +187,7 @@ function toggleCheckboxWithAllChildren(node: INodeElement, isChecked: boolean) {
         @apply font-normal;
     }
     .tree-row-item {
-        @apply cursor-pointer hover:bg-blue-pale;
+        @apply cursor-pointer  p-0;
     }
 }
 </style>
