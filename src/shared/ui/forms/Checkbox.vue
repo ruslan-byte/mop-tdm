@@ -6,7 +6,21 @@
             class="hidden"
             :disabled="disabled"
         />
+        <div v-if="isOrange">
+            <div
+                class="h-5 w-5 border rounded-[1px] border-gray-2 hover:border-orange-hover hover:stroke-orange relative active:bg-orange-pressed active:border-orange-pressed active:stroke-white"
+                :class="{
+                    'bg-orange border-orange hover:bg-orange-hover stroke-white hover:stroke-white':
+                        isActive
+                }"
+            >
+                <CheckIcon
+                    class="stroke-1 stroke-round absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                ></CheckIcon>
+            </div>
+        </div>
         <div
+            v-else
             class="h-5 w-5 border rounded-[1px] relative flex-[0_0_auto]"
             :class="{
                 'bg-blue group-hover:bg-blue-hover group-hover:border-blue-hover border-blue':
@@ -22,6 +36,7 @@
                 class="stroke-white stroke-2 stroke-round absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
             ></CheckIcon>
         </div>
+
         <slot></slot>
     </label>
 </template>
@@ -29,6 +44,6 @@
 import { ref } from 'vue'
 const isActive = defineModel()
 import { CheckIcon } from '@/shared/Icons'
-const props = defineProps<{ disabled?: boolean }>()
+const props = defineProps<{ disabled?: boolean; isOrange: boolean }>()
 </script>
 <style lang="scss"></style>

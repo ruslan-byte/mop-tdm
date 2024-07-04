@@ -1,18 +1,14 @@
 <template>
     <div class="g-container">
-        <div class="flex justify-between">
-            <Checkbox v-model="checked">
-                <p class="ml-1 text-small text-main">
-                    Сравнить с аналогоичным периодом прошлого года
-                </p>
-            </Checkbox>
-            {{ checked }}
+        <div class="flex justify-between pt-5">
+            <CategoryDropdown :options="getCategoryesForFilter(categoryes)">
+            </CategoryDropdown>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { Checkbox } from '@/shared/ui'
-import { ref } from 'vue'
-const checked = ref(false)
+import { CategoryDropdown } from '@/entities/category'
+import { categoryes } from '@/shared/consts'
+import { getCategoryesForFilter } from '@/shared/helpers'
 </script>
 <style lang="scss"></style>
