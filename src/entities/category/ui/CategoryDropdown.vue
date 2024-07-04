@@ -59,12 +59,14 @@
                 <button
                     class="g-button g-button--linear-blue"
                     @click="applyCategoryes"
+                    :disabled="!isChanged"
                 >
                     Применить
                 </button>
                 <button
                     class="g-inline-button g-inline-button--gray-black flex items-center gap-1"
                     @click="resetCategoryes"
+                    :disabled="isModelValueEmpty"
                 >
                     Сбросить
                     <CrossIcon></CrossIcon>
@@ -79,7 +81,7 @@ import { ArrowIcon } from '@/shared/Icons'
 import { SearchField } from '@/shared/ui'
 import Tree from 'vue3-tree'
 import 'vue3-tree/dist/style.css'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { Checkbox } from '@/shared/ui'
 import { CrossIcon } from '@/shared/Icons'
 import { vClickOutside } from '@/shared/ui'
@@ -123,7 +125,7 @@ function getNodeList(
         return {
             checked: isChecked,
             id: option.id,
-            expanded: isCheckedElementExist(ChildrenNodeList),
+            expanded: isCheckedElementExist(ChildrenNodeList) && !isChecked,
             label: option.label,
             nodes: ChildrenNodeList
         }
@@ -174,6 +176,12 @@ function hideDetail() {
 onMounted(() => {
     initNodeList()
 })
+const isChanged = computed(
+    () =>
+        JSON.stringify(getCheckedId(nodeOptionsList.value)) !==
+        JSON.stringify(props.modelValue)
+)
+const isModelValueEmpty = computed(() => props.modelValue.length == 0)
 </script>
 <style lang="scss">
 .category-dropdown {
