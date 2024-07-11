@@ -8,9 +8,9 @@
         />
         <div v-if="isOrange">
             <div
-                class="h-5 w-5 border rounded-[1px] border-gray-2 hover:border-orange-hover hover:stroke-orange relative active:bg-orange-pressed active:border-orange-pressed active:stroke-white"
+                class="h-5 w-5 border rounded-[1px] border-gray-2 group-hover:border-orange-hover group-hover:stroke-orange relative active:bg-orange-pressed active:border-orange-pressed active:stroke-white"
                 :class="{
-                    'bg-orange border-orange hover:bg-orange-hover stroke-white hover:stroke-white':
+                    'bg-orange border-orange group-hover:bg-orange-hover stroke-white hover:stroke-white group-hover:stroke-white':
                         isActive
                 }"
             >
@@ -36,14 +36,14 @@
                 class="stroke-white stroke-2 stroke-round absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
             ></CheckIcon>
         </div>
-
-        <slot></slot>
+        <span>
+            <slot></slot>
+        </span>
     </label>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
 const isActive = defineModel()
 import { CheckIcon } from '@/shared/Icons'
-const props = defineProps<{ disabled?: boolean; isOrange: boolean }>()
+defineProps<{ disabled?: boolean; isOrange?: boolean }>()
 </script>
 <style lang="scss"></style>

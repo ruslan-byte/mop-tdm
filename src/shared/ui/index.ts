@@ -20,3 +20,5 @@ import LargeDatePickerBody from './datepickers/LargeDatePickerBody.vue'
 export { LargeDatePickerBody }
 import Checkbox from './forms/Checkbox.vue'
 export { Checkbox }
+import CheckboxDropdown from './forms/CheckboxDropdown.vue'
+export { CheckboxDropdown }
