@@ -52,10 +52,17 @@ const emit = defineEmits(['update:modelValue'])
             }
         }
         &--orange-blue {
-            @apply bg-blue-light hover:text-orange active:text-orange-pressed h-9 leading-6 py-2 px-4 disabled:bg-blue-pale disabled:text-gray-light text-caption leading-5;
+            @apply bg-blue-light hover:bg-blue-pale hover:text-orange active:text-orange-pressed h-9  py-2 px-4 disabled:bg-blue-pale disabled:text-gray-light text-caption leading-5;
 
             &.tabs__button--active {
                 @apply bg-orange text-white hover:bg-orange-hover active:bg-orange-pressed font-semibold;
+            }
+        }
+        &--blue {
+            @apply bg-blue-light hover:bg-blue-pale hover:text-blue active:text-blue-pressed h-9  py-2 px-4 disabled:bg-blue-pale disabled:text-gray-light text-caption leading-5;
+
+            &.tabs__button--active {
+                @apply bg-blue text-white hover:bg-blue-hover active:bg-blue-pressed font-semibold;
             }
         }
     }

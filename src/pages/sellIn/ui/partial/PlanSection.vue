@@ -27,7 +27,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import Tabs, { ITab } from '@/components/Tabs.vue'
+import { Tabs, ITab } from '@/shared/ui'
 import { ref } from 'vue'
 import UpdateBlock from '@/components/UpdateBlock.vue'
 import QuartalBlock, { IQuartalBlockData } from './QuartalBlock.vue'

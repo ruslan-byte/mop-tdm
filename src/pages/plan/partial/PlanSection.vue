@@ -118,8 +118,7 @@
     </section>
 </template>
 <script setup lang="ts">
-import Tabs from '@/components/Tabs.vue'
-import type { ITab } from '@/components/Tabs.vue'
+import { Tabs, ITab } from '@/shared/ui'
 import { ref, computed } from 'vue'
 import { BarDiagramIcon, PieDiagramIcon } from '@/shared/Icons'
 import PieDiagramBlock from './PieDiagramBlock.vue'

@@ -22,3 +22,6 @@ import Checkbox from './forms/Checkbox.vue'
 export { Checkbox }
 import CheckboxDropdown from './forms/CheckboxDropdown.vue'
 export { CheckboxDropdown }
+import Tabs from './forms/Tabs.vue'
+export { Tabs }
+export type { ITab } from './forms/Tabs.vue'
