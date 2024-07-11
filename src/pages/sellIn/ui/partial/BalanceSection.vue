@@ -105,25 +105,27 @@
             </div>
         </div>
         <table
-            class="w-full border-spacing-y-4 border-spacing-x-0"
+            class="w-full border-spacing-y-4 border-spacing-x-0 g-table"
             v-for="sellCompany of data.selesCompanies"
             :key="sellCompany.name"
         >
-            <thead class="h-[2.125rem]">
-                <tr class="h-[2.125rem]">
-                    <th class="text-small pl-4 text-main w-[11rem]">
+            <thead class="h-[2.125rem] g-table__header">
+                <tr class="h-[2.125rem] g-table__row">
+                    <th class="g-table__th text-small pl-4 text-main w-[11rem]">
                         Компания-продавец
                     </th>
-                    <th class="text-small text-main">
+                    <th class="g-table__th text-small text-main">
                         Итоговый баланс по компании-продавцу
                     </th>
                 </tr>
             </thead>
-            <tr class="h-[1.9375rem]">
-                <td class="text-blue font-semibold pl-4 align-top leading-5">
+            <tr class="h-[1.9375rem] g-table__row">
+                <td
+                    class="text-blue font-semibold pl-4 align-top leading-5 g-table__cell"
+                >
                     {{ sellCompany.name }}
                 </td>
-                <td class="align-top leading-5">
+                <td class="align-top leading-5 g-table__cell">
                     <div class="flex gap-8 items-start">
                         <div class="w-[11.25rem]">
                             <p
@@ -209,11 +211,15 @@
                     </div>
                 </td>
             </tr>
-            <tr class="h-8">
-                <td class="bg-blue-pale text-main text-small leading-4 pl-4">
+            <tr class="h-8 g-table__row">
+                <td
+                    class="g-table__cell bg-blue-pale text-main text-small leading-4 pl-4"
+                >
                     Юр. лицо
                 </td>
-                <td class="bg-blue-pale text-main text-small leading-4">
+                <td
+                    class="g-table__cell bg-blue-pale text-main text-small leading-4"
+                >
                     Баланс по юр.лицу
                 </td>
             </tr>
@@ -223,15 +229,15 @@
                 ) of sellCompany.organizations"
                 :key="organization.name + organizationIndex"
             >
-                <tr class="h-[unset]">
-                    <td class="pl-4 align-top">
+                <tr class="g-table__row h-[unset]">
+                    <td class="pl-4 align-top g-table__cell">
                         <p
                             class="text-main text-caption font-semibold leading-4"
                         >
                             {{ organization.name }}
                         </p>
                     </td>
-                    <td class="align-top">
+                    <td class="align-top g-table__cell">
                         <div class="flex gap-8 items-start">
                             <div class="w-[11.25rem]">
                                 <p
@@ -339,11 +345,11 @@
                 </tr>
                 <tr
                     v-for="(contract, contractIndex) of organization.contracts"
-                    class="h-[unset]"
+                    class="h-[unset] g-table__row"
                     :key="contract.name + contractIndex"
                 >
                     <td
-                        class="pl-4 align-top"
+                        class="pl-4 align-top g-table__cell"
                         :class="{
                             'border-b border-gray-light first:rounded-none pb-3.75':
                                 contractIndex ==
@@ -360,7 +366,7 @@
                         </div>
                     </td>
                     <td
-                        class="align-top"
+                        class="align-top g-table__cell"
                         :class="{
                             'border-b border-gray-light last:rounded-none pb-3.75':
                                 contractIndex ==

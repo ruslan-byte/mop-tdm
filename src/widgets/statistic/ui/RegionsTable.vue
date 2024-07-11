@@ -1,8 +1,10 @@
 <template>
-    <table class="drop-shadow-table">
-        <thead class="h-[3.625rem]">
-            <th class="text-caption w-[29.4375rem] pl-8">Название региона</th>
-            <th class="w-[13.75rem]">
+    <table class="drop-shadow-table g-table">
+        <thead class="h-[3.625rem] g-table__header">
+            <th class="g-table__th text-caption w-[29.4375rem] pl-8">
+                Название региона
+            </th>
+            <th class="g-table__th w-[13.75rem]">
                 <div class="flex gap-2">
                     <label
                         class="cursor-pointer flex items-center gap-2 text-caption"
@@ -16,7 +18,7 @@
                     </label>
                 </div>
             </th>
-            <th class="text-caption w-[29.3125rem] pl-8">
+            <th class="g-table__th text-caption w-[29.3125rem] pl-8">
                 <div class="flex gap-2">
                     <label class="cursor-pointer flex items-center gap-2">
                         Сумма отгрузок
@@ -29,9 +31,9 @@
                 </div>
             </th>
         </thead>
-        <tr v-for="region of regions">
+        <tr class="g-table__row" v-for="region of regions">
             <td
-                class="text-blue-dark pl-8"
+                class="text-blue-dark pl-8 g-table__cell"
                 :class="{
                     'bg-pink-pale': region.color == 'red',
                     'bg-yellow-pale': region.color == 'yellow',
@@ -47,6 +49,7 @@
             </td>
 
             <td
+                class="g-table__cell"
                 :class="{
                     'bg-pink-pale': region.color == 'red',
                     'bg-yellow-pale': region.color == 'yellow',
@@ -82,7 +85,7 @@
                 </div>
             </td>
             <td
-                class="pl-8"
+                class="pl-8 g-table__cell"
                 :class="{
                     'bg-pink-pale': region.color == 'red',
                     'bg-yellow-pale': region.color == 'yellow',

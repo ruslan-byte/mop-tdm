@@ -16,16 +16,19 @@
                 v-model="activeSortValue"
             ></Dropdown>
         </div>
-        <table class="w-full">
-            <thead>
-                <th class="w-[38rem] pl-8">Название</th>
-                <th class="w-[13.4375rem]">План</th>
-                <th class="w-[13.4375rem]">Факт</th>
-                <th class="w-[12,5625rem] pr-8">% выполнения плана</th>
+
+        <table class="w-full g-table">
+            <thead class="g-table__header">
+                <th class="g-table__th w-[38rem] pl-8">Название</th>
+                <th class="g-table__th w-[13.4375rem]">План</th>
+                <th class="g-table__th w-[13.4375rem]">Факт</th>
+                <th class="g-table__th w-[12,5625rem] pr-8">
+                    % выполнения плана
+                </th>
             </thead>
 
-            <tr v-for="item of 10">
-                <td class="text-blue-dark pl-8">
+            <tr class="g-table__row" v-for="item of 10">
+                <td class="g-table__cell text-blue-dark pl-8">
                     <router-link
                         to="/sell-in/0"
                         class="hover:text-blue active:text-blue-pressed"
@@ -33,13 +36,13 @@
                         Энергосберегающие технологии
                     </router-link>
                 </td>
-                <td>
+                <td class="g-table__cell">
                     <div class="flex gap-2 items-center">
                         <span class="text-gray text-small"> План: </span>
                         <span class="text-main"> 670 878,00 ₽</span>
                     </div>
                 </td>
-                <td>
+                <td class="g-table__cell">
                     <div class="flex gap-2 items-center">
                         <span class="text-gray text-small"> Факт: </span>
                         <span class="text-blue text-caption">
@@ -47,7 +50,7 @@
                         >
                     </div>
                 </td>
-                <td class="pr-8">
+                <td class="g-table__cell pr-8">
                     <div class="flex gap-2 items-center">
                         <span class="text-gray text-small">
                             % выполнения:
