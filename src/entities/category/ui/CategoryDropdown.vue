@@ -1,12 +1,12 @@
 <template>
     <div class="relative category-dropdown" v-click-outside="hideDetail">
         <button
-            class="relative inline-block pointer-events-auto group"
+            class="relative inline-block pointer-events-auto group w-full"
             @click="showDetail"
         >
             <input
                 type="text"
-                class="h-10 rounded border border-gray-light placeholder:text-caption placeholder:text-main px-4 group-hover:border-blue-hover bg-white cursor-pointer pointer-events-none"
+                class="h-10 rounded border border-gray-light placeholder:text-caption placeholder:text-main px-4 group-hover:border-blue-hover bg-white cursor-pointer pointer-events-none w-full"
                 placeholder="Категория"
                 disabled
                 @click="showDetail"

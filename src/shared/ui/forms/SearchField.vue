@@ -9,7 +9,7 @@
                 'hover:bg-blue-pale active:outline active:bg-background active:outline-gray-light disabled:bg-gray-pale disabled:outline-none':
                     !isWhite
             }"
-            placeholder="Поиск"
+            :placeholder="placeholder"
             v-model="model"
             :disabled="disabled"
         />
@@ -20,7 +20,7 @@
 </template>
 <script setup lang="ts">
 import { SearchIcon } from '@/shared/Icons'
-defineProps<{ disabled?: boolean; isWhite?: boolean }>()
+defineProps<{ disabled?: boolean; isWhite?: boolean; placeholder?: string }>()
 const model = defineModel()
 </script>
 <style lang="scss"></style>

@@ -11,6 +11,7 @@ import { BreadCrumbs, IBreadCrumbLink } from '@/widgets/layout'
 import { Tabs, ITab } from '@/shared/ui'
 import PlanSection from './partial/PlanSection.vue'
 import type { TPlanSection } from './partial/PlanSection.vue'
+
 import { ref } from 'vue'
 
 const BreadCrumbsLinks: IBreadCrumbLink[] = [
