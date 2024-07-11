@@ -1,18 +1,31 @@
 <template>
     <div class="relative" v-click-outside="hideDetail">
-        <button class="relative w-full group" @click="showDetail">
+        <button
+            class="relative w-full group"
+            @click="showDetail"
+            :class="{ 'cursor-default': disabled }"
+        >
             <input
                 type="text"
-                class="h-10 w-full bg-white rounded border placeholder:text-captio placeholder:text-main pl-4 pr-8 group-hover:border-blue-hover select-none pointer-events-none text-caption"
+                class="h-10 w-full bg-white rounded border pl-4 pr-8 group-hover:border-blue-hover select-none pointer-events-none text-caption"
                 :class="{
                     'border-blue': isShowDetail,
-                    'border-gray-light': !isShowDetail
+                    'border-gray-light': !isShowDetail,
+                    'border-gray-pale group-hover:border-gray-pale placeholder:text-gray-2':
+                        disabled,
+                    'placeholder:text-main': !disabled
                 }"
                 :placeholder="placeholder"
                 disabled
             />
             <ArrowIcon
-                class="stroke-gray absolute right-[1.0625rem] top-1/2 -translate-y-1/2 rotate-180"
+                class="absolute right-[1.0625rem] top-1/2 -translate-y-1/2"
+                :class="{
+                    'stroke-gray-2': disabled,
+                    'stroke-gray': !disabled,
+                    'rotate-0': isShowDetail,
+                    'rotate-180': !isShowDetail
+                }"
             ></ArrowIcon>
         </button>
         <div
@@ -53,6 +66,7 @@ const props = defineProps<{
     options: IOption[]
     modelValue: string
     placeholder?: string
+    disabled?: boolean
 }>()
 const emit = defineEmits(['update:modelValue'])
 const isShowDetail = ref(false)
@@ -61,7 +75,7 @@ function update(id: string) {
     hideDetail()
 }
 function showDetail() {
-    isShowDetail.value = true
+    if (!props.disabled) isShowDetail.value = true
 }
 function hideDetail() {
     isShowDetail.value = false
