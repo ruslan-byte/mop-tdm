@@ -29,3 +29,6 @@ export type { ITab } from './forms/Tabs.vue'
 import Dropdown from './forms/Dropdown.vue'
 export { Dropdown }
 export type { IDropdownOption } from './forms/Dropdown.vue'
+import Select from './forms/Select.vue'
+export { Select }
+export type { ISelectOption } from './forms/Select.vue'

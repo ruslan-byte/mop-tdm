@@ -48,13 +48,13 @@ const placement = ref<'top' | 'bottom'>('bottom')
 const select = ref<HTMLLabelElement>()
 const isDetailShow = ref<boolean>(false)
 const emit = defineEmits(['update:modelValue'])
-export interface IOption {
+export interface ISelectOption {
     label: string
     value: string
 }
 const props = defineProps<{
     disabled?: boolean
-    options: IOption[]
+    options: ISelectOption[]
     modelValue?: string
 }>()
 function showDetail() {
@@ -74,7 +74,7 @@ function calculatePlacemant() {
                 : 'bottom'
     }
 }
-function setActiveValue(option: IOption) {
+function setActiveValue(option: ISelectOption) {
     emit('update:modelValue', option.value)
     select.value?.blur()
 }

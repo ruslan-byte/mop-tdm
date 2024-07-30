@@ -89,9 +89,7 @@ import { categoryes } from '@/shared/consts'
 import { getCategoryesForFilter } from '@/shared/helpers'
 import ShipmentDatePicker from './ShipmentDatePicker.vue'
 import ShipmentChart from './ShipmentChart.vue'
-import Select, {
-    IOption as ISelectOption
-} from '@/components/Dropdowns/Select.vue'
+import { Select, ISelectOption } from '@/shared/ui'
 const showOnGraph = ref<'electro-kpp' | 'electro' | 'kpp'>('electro-kpp')
 const categoryIdList = ref([])
 const date = ref()

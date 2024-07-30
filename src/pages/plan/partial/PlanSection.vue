@@ -65,9 +65,7 @@
                 Детализация динамики прироста плана по партнерам
             </p>
             <div class="flex items-center gap-4">
-                <p class="text-caption leading-5">
-                    Показывать сначала партнеров
-                </p>
+                <p class="text-caption leading-5"></p>
                 <Select
                     v-model="activeOption"
                     class="min-w-[18rem]"
@@ -123,10 +121,9 @@ import { ref, computed } from 'vue'
 import { BarDiagramIcon, PieDiagramIcon } from '@/shared/Icons'
 import PieDiagramBlock from './PieDiagramBlock.vue'
 import { IPlanChartItem } from '@/shared/types'
-import SmallDatePicker from '@/components/DatePickers/SmallDatePicker.vue'
+import SmallDatePicker from './SmallDatePicker.vue'
 import moment from 'moment'
-import Select from '@/components/Dropdowns/Select.vue'
-import type { IOption } from '@/components/Dropdowns/Select.vue'
+import { ISelectOption, Select } from '@/shared/ui'
 import BarDiagramBlock from './BarDiagramBlock.vue'
 export type TPlanSection = 'month' | 'quartal' | 'year'
 const props = defineProps<{ type: TPlanSection }>()
@@ -240,7 +237,7 @@ const chartData: IPlanChartItem[] = [
 ]
 
 const activeOption = ref('shipment')
-const selectOptions = computed((): IOption[] => {
+const selectOptions = computed((): ISelectOption[] => {
     if (props.type == 'month')
         return [
             {
