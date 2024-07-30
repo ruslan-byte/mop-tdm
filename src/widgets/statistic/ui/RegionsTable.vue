@@ -1,6 +1,6 @@
 <template>
     <table class="drop-shadow-table g-table">
-        <thead class="h-[3.625rem] g-table__header">
+        <thead class="h-[3.625rem]">
             <th class="g-table__th text-caption w-[29.4375rem] pl-8">
                 Название региона
             </th>

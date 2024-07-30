@@ -43,6 +43,13 @@
             >
                 {{ linkItem.name }}
             </router-link>
+            <button
+                @click="isShowDetailLinks = true"
+                v-else-if="linkItem.isButton"
+                class="w-[1.875rem] h-[1.875rem] bg-background text-gray flex items-center justify-center hover:text-orange"
+            >
+                {{ linkItem.name }}
+            </button>
             <div
                 v-else
                 class="w-[2.375rem] h-[1.875rem] bg-background text-gray flex items-center justify-center"
@@ -85,15 +92,11 @@
 <script setup lang="ts">
 import { ArrowIcon, DoubleArrowIcon } from '@/shared/Icons'
 import { computed } from 'vue'
-interface ILinkItem {
-    id: number
-    name: string
-    link?: string
-}
-
+import { IPaginationLink } from '@/shared/types'
+import { ref } from 'vue'
 const props = defineProps<{
     modelValue: number
-    links: ILinkItem[]
+    links: IPaginationLink[]
 }>()
 const emit = defineEmits(['update:modelValue'])
 function changePage(newPage: number) {
@@ -101,7 +104,7 @@ function changePage(newPage: number) {
 }
 
 const prevLinkItem = computed(() => {
-    const prevPageLinkItem: ILinkItem | undefined = props.links.find(
+    const prevPageLinkItem: IPaginationLink | undefined = props.links.find(
         (link, index, arr) => {
             if (arr[index + 1]) return arr[index + 1].id === props.modelValue
             return false
@@ -110,7 +113,7 @@ const prevLinkItem = computed(() => {
     return prevPageLinkItem ?? null
 })
 const nextLinkItem = computed(() => {
-    const nextPageLinkItem: ILinkItem | undefined = props.links.find(
+    const nextPageLinkItem: IPaginationLink | undefined = props.links.find(
         (link, index, arr) => {
             if (arr[index - 1]) return arr[index - 1].id === props.modelValue
             return false
@@ -125,6 +128,20 @@ const lastLinkItem = computed(() => {
     return props.modelValue !== props.links[props.links.length - 1].id
         ? props.links[props.links.length - 1]
         : null
+})
+
+const isLinksCountLarge = computed(() => {
+    return props.links.length > 6
+})
+const isShowDetailLinks = ref(false)
+const links = computed((): IPaginationLink[] => {
+    if (isLinksCountLarge && !isShowDetailLinks.value)
+        return [
+            ...props.links.slice(0, 3),
+            { id: -1, name: '...', isButton: true },
+            ...props.links.slice(-2)
+        ]
+    return props.links
 })
 </script>
 <style lang="scss"></style>

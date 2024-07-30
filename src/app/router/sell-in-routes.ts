@@ -1,14 +1,17 @@
 import { Header } from '@/widgets/layout'
 import {
-    PartnersPage,
     PartnerDetailPage,
     RegionsPage,
     DetailRegionPage
 } from '@/pages/sellIn'
+import { SellInPartnersPage } from '@/pages/partners'
 export default [
     {
         path: '/sell-in',
-        components: { default: PartnersPage, header: Header }
+        components: {
+            default: SellInPartnersPage,
+            header: Header
+        }
     },
     {
         path: '/sell-in/:id',

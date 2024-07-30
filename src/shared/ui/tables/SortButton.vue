@@ -12,13 +12,14 @@
 </template>
 <script setup lang="ts">
 import { SortIcon } from '@/shared/Icons'
-const props = defineProps<{ modelValue: 'ASC' | 'DESC' | '' }>()
+import { sortButtonValueType } from '@/shared/types'
+const props = defineProps<{ modelValue: sortButtonValueType }>()
 const emit = defineEmits(['update:modelValue'])
 function changeSort() {
     const varianst = {
         '': 'ASC',
         ASC: 'DESC',
-        DESC: ''
+        DESC: 'ASC'
     }
 
     emit('update:modelValue', varianst[props.modelValue])
@@ -56,18 +57,18 @@ function changeSort() {
     }
     &--top {
         path:first-child {
-            @apply fill-main stroke-main;
+            @apply fill-blue stroke-blue;
         }
         path:nth-child(2) {
-            @apply fill-main;
+            @apply fill-blue;
         }
 
         &:hover {
             path:first-child {
-                @apply fill-main stroke-gray;
+                @apply fill-main stroke-main;
             }
             path:nth-child(2) {
-                @apply fill-gray;
+                @apply fill-main;
             }
         }
         &:active {
@@ -87,10 +88,10 @@ function changeSort() {
             @apply fill-gray-2;
         }
         path:nth-child(3) {
-            @apply fill-main stroke-main;
+            @apply fill-blue stroke-blue;
         }
         path:last-child {
-            @apply fill-main;
+            @apply fill-blue;
         }
         &:hover {
             path:first-child {
@@ -100,10 +101,10 @@ function changeSort() {
                 @apply fill-gray-2;
             }
             path:nth-child(3) {
-                @apply fill-main stroke-gray;
+                @apply fill-main stroke-main;
             }
             path:last-child {
-                @apply fill-gray;
+                @apply fill-main;
             }
         }
         &:active {

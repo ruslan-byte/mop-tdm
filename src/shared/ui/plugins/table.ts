@@ -9,12 +9,12 @@ export const tablePlagin = plugin(
         theme: Function
     }) => {
         addComponents({
-            '.g-table__header': {
-                height: '5rem'
-            },
             '.g-table__th': {
                 textAlign: 'left',
-                paddingLeft: '1.5rem',
+                paddingTop: '1rem',
+                paddingBottom: '1rem',
+                paddingLeft: '0.75rem',
+                paddingRight: '0.75rem',
                 color: theme('colors.blue-dark'),
                 background: theme('colors.blue-light'),
                 fontWeight: '600',
@@ -27,8 +27,10 @@ export const tablePlagin = plugin(
             },
             '.g-table__cell': {
                 textAlign: 'left',
-                padding: '0',
-                paddingLeft: '1.5rem',
+                paddingTop: '1rem',
+                paddingBottom: '1rem',
+                paddingLeft: '0.75rem',
+                paddingRight: '0.75rem',
                 background: theme('colors.white'),
                 '&:first-child': {
                     borderRadius: '5px 0 0 5px'

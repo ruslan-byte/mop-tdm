@@ -8,12 +8,8 @@
                     ></LogoIcon>
                 </router-link>
                 <nav class="text-blue-dark flex items-center gap-10">
-                    <NavLink to="/" class="min-w-[7.5rem]"
-                        >Мой план-факт</NavLink
-                    >
-                    <NavLink to="/order-shipments" class="min-w-[1.5rem]"
-                        >Отгрузки</NavLink
-                    >
+                    <NavLink to="/">План-факт</NavLink>
+
                     <NavDropdown :options="sellInLinks" class="min-w-[4.25rem]"
                         >Sell In</NavDropdown
                     >
@@ -22,13 +18,12 @@
                         class="min-w-[4.9375rem]"
                         >Sell Out</NavDropdown
                     >
-                    <NavLink to="/sku" class="min-w-[2.0625rem]">SKU</NavLink>
                     <NavLink to="/profile" class="min-w-[4.9375rem]"
                         >Мои данные</NavLink
                     >
                 </nav>
             </div>
-            <div class="flex items-end gap-[1.375rem] pr-[0.1875rem]">
+            <div class="flex items-end gap-[1.375rem] pr-px">
                 <button
                     class="g-inline-button g-inline-button--gray active:stroke-gray pb-[0.1875rem]"
                 >
@@ -47,8 +42,9 @@ import { NotificationIcon } from '@/shared/Icons'
 import NavDropdown from './NavDropdown.vue'
 const sellInLinks = [
     { link: '/sell-in', name: 'Партнеры' },
-    { link: '/sell-in/regions', name: 'Регионы' },
-    { link: '/sell-in/city', name: 'Города' }
+    { link: '/order-shipments', name: 'Отгрузки' },
+    { link: '/sku', name: 'SKU' },
+    { link: '/sell-in/regions', name: 'Регионы' }
 ]
 const sellOutLinks = [
     { link: '/partners', name: 'Партнеры' },

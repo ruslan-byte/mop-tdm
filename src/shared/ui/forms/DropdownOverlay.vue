@@ -23,8 +23,7 @@
 defineProps<{ placeholder: string }>()
 import { ArrowIcon } from '@/shared/Icons'
 import { ref } from 'vue'
-import vClickOutsideDirective from 'click-outside-vue3'
-const vClickOutside = vClickOutsideDirective.directive
+import { vClickOutside } from '../clickOutside'
 const isDetailShow = ref(false)
 function hideDetail() {
     isDetailShow.value = false

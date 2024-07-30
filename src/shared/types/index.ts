@@ -1,3 +1,5 @@
 export type { IPlanChartItem } from './chart'
 export type { ICategory } from './category'
 export type { ICategoryFilterOption } from './category'
+export type { sortButtonValueType } from './sort'
+export type { IPaginationLink } from './pagination'

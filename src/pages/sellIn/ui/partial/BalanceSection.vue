@@ -109,7 +109,7 @@
             v-for="sellCompany of data.selesCompanies"
             :key="sellCompany.name"
         >
-            <thead class="h-[2.125rem] g-table__header">
+            <thead class="h-[2.125rem]">
                 <tr class="h-[2.125rem] g-table__row">
                     <th class="g-table__th text-small pl-4 text-main w-[11rem]">
                         Компания-продавец
